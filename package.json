@@ -1,0 +1,28 @@
+{
+  "name": "steam-page-reviews-component",
+  "version": "1.0.0",
+  "description": "A component for a single page app that renders reviews in multiple formats that can be sorted. Meant to be single service of an app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jamie-Lee-Birdis/reviews.git"
+  },
+  "author": "John Tirelli",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Jamie-Lee-Birdis/reviews/issues"
+  },
+  "homepage": "https://github.com/Jamie-Lee-Birdis/reviews#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.4"
+  }
+}
