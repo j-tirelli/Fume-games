@@ -1,33 +1,28 @@
 {
-  "name": "steam-page-reviews-component",
+  "name": "reviews",
   "version": "1.0.0",
-  "description": "A component for a single page app that renders reviews in multiple formats that can be sorted. Meant to be single service of an app.",
+  "description": "reviews module and footer",
   "main": "index.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {},
   "scripts": {
-    "database": "sequelize-cli db:create",
-    "migrate": "sequelize-cli db:migrate",
-    "seed": "sequelize-cli db:seed:all --debug",
+    "initialize": "cd database && npm run database && npm run migrate && npm run seed",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Jamie-Lee-Birdis/reviews.git"
   },
-  "author": "John Tirelli",
-  "license": "UNLICENSED",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Jamie-Lee-Birdis/reviews/issues"
   },
-  "homepage": "https://github.com/Jamie-Lee-Birdis/reviews#readme",
-  "dependencies": {
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "mysql2": "^2.2.5",
-    "sequelize": "^6.3.5"
-  },
-  "devDependencies": {
-    "morgan": "^1.10.0",
-    "nodemon": "^2.0.4",
-    "sequelize-cli": "^6.2.0"
-  }
+  "homepage": "https://github.com/Jamie-Lee-Birdis/reviews#readme"
 }
