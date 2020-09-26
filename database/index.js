@@ -8,8 +8,8 @@ const sequelize = new Sequelize('reviews', process.env.DB_USERNAME, process.env.
   dialect: 'mysql'
 });
 
-var getReviews = async (game_id) => {
-  const reviews = await models.Review.findAll({ where: { game_id } });
+var getReviews = async (GameId) => {
+  const reviews = await models.Review.findAll({ where: { GameId } });
   return reviews;
 };
 

@@ -14,10 +14,10 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     static associate(models) {
-      // Game.belongsToMany(models.User, {
-      //   through: 'user_Game'
-      // })
-      // Game.hasMany(user_Game);
+      Game.belongsToMany(models.User, {
+        through: 'User_games'
+      })
+      Game.hasMany(models.user_game);
       // define association here
     }
   };

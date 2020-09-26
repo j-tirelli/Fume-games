@@ -10,14 +10,14 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // user_game.belongsTo(user);
-      // user_game.belongsTo(game);
+      user_game.belongsTo(models.User);
+      user_game.belongsTo(models.Game);
       // define association here
     }
   };
   user_game.init({
-    user_id: DataTypes.INTEGER,
-    game_id: DataTypes.INTEGER,
+    GameId: DataTypes.INTEGER,
+    UserId: DataTypes.INTEGER,
     time_played: DataTypes.INTEGER,
     purchase_type: DataTypes.STRING
   }, {
