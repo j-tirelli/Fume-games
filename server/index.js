@@ -11,7 +11,7 @@ app.get('/moist-air/reviews', (req, res, next) => {
       res.send(data);
     })
     .catch((err) => {
-      console.log('---err---', err);
+      res.send(err);
     });
 })
 
@@ -23,7 +23,7 @@ app.patch('/moist-air/reviews', (req, res, next) => {
       res.send(data);
     })
     .catch((err) => {
-      console.log('---err---', err);
+      res.send(err);
     });
 })
 
