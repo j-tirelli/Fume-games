@@ -27,6 +27,14 @@ app.patch('/moist-air/reviews', (req, res, next) => {
     });
 })
 
+var faker = require('faker');
+const fakeGames = [];
+for (var i = 0; i < 100; i++) {
+  var fakeDate = faker.date.between('2009-01-01', '2020-09-05');
+  fakeGames.push({title: faker.commerce.productName(), createdAt: fakeDate, updatedAt: fakeDate});
+}
+console.log(fakeGames);
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })

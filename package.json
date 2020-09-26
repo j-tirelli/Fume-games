@@ -9,7 +9,9 @@
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "faker": "^5.1.0"
+  },
   "scripts": {
     "initialize": "cd database && npm run database && npm run migrate && npm run seed",
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -1,26 +1,24 @@
+var faker = require('faker');
 'use strict';
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert('Users',
-    [
-      {
-        Username: 'John Doe',
-        avatar: 'https://random.dog/0e198464-e755-43bb-a2f8-9db136507f38.JPG',
-        games_owned_count: 3,
-        reviews_count: 4,
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        Username: 'Jane Doe',
-        avatar: 'https://random.dog/0e198464-e755-43bb-a2f8-9db136507f38.JPG',
-        games_owned_count: 4,
-        reviews_count: 3,
-        createdAt: new Date(),
-        updatedAt: new Date()
+
+    const fakeUsers = [];
+    const noDupe = {}
+    for (var i = 0; i < 105; i++) {
+      var fakeDate = faker.date.between('2009-01-01', '2020-09-05');
+      var fakeName = faker.internet.userName();
+      var fakePic = faker.internet.avatar();
+      var fakeOwned = Math.floor(Math.random() * 200);
+      var fakeReviewed = Math.floor(Math.random() * 100);
+      if (!noDupe[fakeName]) {
+        fakeUsers.push({Username: fakeName, avatar: fakePic, games_owned_count: fakeOwned, reviews_count: fakeReviewed, createdAt: fakeDate, updatedAt: fakeDate});
+        noDupe[fakeName] = true;
       }
-    ], {});
+    }
+
+    await queryInterface.bulkInsert('Users', fakeUsers, {});
   },
 
   down: async (queryInterface, Sequelize) => {

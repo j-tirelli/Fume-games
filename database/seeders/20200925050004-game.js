@@ -1,20 +1,19 @@
+var faker = require('faker');
 'use strict';
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert('Games',
-    [
-      {
-        title: 'Adventures of John Doe',
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        title: 'The New Adventures of Jane Doe',
-        createdAt: new Date(),
-        updatedAt: new Date()
+    const fakeGames = [];
+    const noDupe = {}
+    for (var i = 0; i < 105; i++) {
+      var fakeDate = faker.date.between('2009-01-01', '2020-09-05');
+      var fakeTitle = faker.commerce.productName();
+      if (!noDupe[fakeTitle]) {
+        fakeGames.push({title: fakeTitle, createdAt: fakeDate, updatedAt: fakeDate});
+        noDupe[fakeTitle] = true;
       }
-    ], {});
+    }
+    await queryInterface.bulkInsert('Games', fakeGames, {});
   },
 
   down: async (queryInterface, Sequelize) => {
