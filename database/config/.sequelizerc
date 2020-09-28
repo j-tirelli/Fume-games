@@ -1,9 +1,6 @@
 'use strict';
 
 require('dotenv').config();
-Dotenv.load(
-  File.expand_path(".env", __FILE__),
-);
 const path = require('path');
 
 module.exports = {

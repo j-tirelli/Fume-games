@@ -11,19 +11,11 @@ module.exports = {
       GameId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: {
-          model: 'Games',
-          key: 'id'
-        },
         onUpdate: 'cascade'
       },
       UserId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: {
-          model: 'Users',
-          key: 'id'
-        },
         onUpdate: 'cascade'      },
       recommended: {
         allowNull: false,
@@ -31,7 +23,7 @@ module.exports = {
       },
       body: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       helpful_count: {
         defaultValue: null,
