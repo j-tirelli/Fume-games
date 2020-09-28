@@ -15,11 +15,11 @@ module.exports = {
             var GameId = Math.floor(Math.random() * 67);
             let time_played = Math.round(((Math.random() * 1000) + Number.EPSILON) * 100) / 100;
             var purchase_type = (Math.random() > 0.5) ? 'Steam Purchase' : 'Non-Steam Purchase';
-            console.log('trying', UserId, GameId, time_played, purchase_type, createdAt, updatedAt)
             fakeUserGames.push({ UserId, GameId, time_played, purchase_type, createdAt, updatedAt })
           }
         })
       })
+      debugger;
 
     await queryInterface.bulkInsert('User_games', fakeUserGames, {});
   },
