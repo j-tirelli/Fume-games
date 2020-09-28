@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Review.belongsTo(models.User);
       Review.belongsTo(models.Game);
-      // define association here
     }
   };
   Review.init({

@@ -20,6 +20,7 @@ module.exports = {
           }
         })
       })
+      debugger;
 
     await queryInterface.bulkInsert('User_games', fakeUserGames, {});
   },
