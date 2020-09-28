@@ -1,34 +1,27 @@
+var faker = require('faker');
 'use strict';
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert('User_games',
-    [
-      {
-        UserId: 1,
-        GameId: 1,
-        time_played: 3.2,
-        purchase_type: 'Steam Purchase',
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        UserId: 1,
-        GameId: 2,
-        time_played: 1.4,
-        purchase_type: 'Non-Steam Purchase',
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        UserId: 2,
-        GameId: 1,
-        time_played: 1.4,
-        purchase_type: 'Steam Purchase',
-        createdAt: new Date(),
-        updatedAt: new Date()
-      }
-    ], {});
+
+    const fakeUserGames = [];
+    await queryInterface.sequelize.query(`SELECT id, games_owned_count FROM Users`)
+      .then((users) => {
+        users[0].forEach((user) => {
+          var UserId = user.id;
+          for (var i = 0; i < user.games_owned_count; i++) {
+            var createdAt = faker.date.between('2009-01-01', '2020-09-05');
+            var updatedAt = createdAt;
+            var GameId = Math.floor(Math.random() * 67);
+            let time_played = Math.round(((Math.random() * 1000) + Number.EPSILON) * 100) / 100;
+            var purchase_type = (Math.random() > 0.5) ? 'Steam Purchase' : 'Non-Steam Purchase';
+            console.log('trying', UserId, GameId, time_played, purchase_type, createdAt, updatedAt)
+            fakeUserGames.push({ UserId, GameId, time_played, purchase_type, createdAt, updatedAt })
+          }
+        })
+      })
+
+    await queryInterface.bulkInsert('User_games', fakeUserGames, {});
   },
 
   down: async (queryInterface, Sequelize) => {
