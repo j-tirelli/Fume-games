@@ -14,7 +14,8 @@
   },
   "scripts": {
     "initialize": "cd database && npm run database && npm run migrate && npm run seed",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clearDB": "cd database && npm run unseed && npm run unmigrate && npm run unDB"
   },
   "repository": {
     "type": "git",
