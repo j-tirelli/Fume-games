@@ -12,15 +12,13 @@ module.exports = {
           for (var i = 0; i < user.games_owned_count; i++) {
             var createdAt = faker.date.between('2009-01-01', '2020-09-05');
             var updatedAt = createdAt;
-            var GameId = Math.floor(Math.random() * 67);
+            var GameId = Math.floor(Math.random() * 100);
             let time_played = Math.round(((Math.random() * 1000) + Number.EPSILON) * 100) / 100;
             var purchase_type = (Math.random() > 0.5) ? 'Steam Purchase' : 'Non-Steam Purchase';
             fakeUserGames.push({ UserId, GameId, time_played, purchase_type, createdAt, updatedAt })
           }
         })
       })
-      debugger;
-
     await queryInterface.bulkInsert('User_games', fakeUserGames, {});
   },
 

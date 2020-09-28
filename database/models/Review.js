@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     GameId: DataTypes.INTEGER,
     UserId: DataTypes.INTEGER,
     recommended: DataTypes.BOOLEAN,
-    body: DataTypes.STRING,
+    body: DataTypes.TEXT,
     helpful_count: DataTypes.INTEGER,
     funny_count: DataTypes.INTEGER,
     comments_count: DataTypes.INTEGER,
