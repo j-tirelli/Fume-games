@@ -19,7 +19,6 @@ test('it should change an existing value', () => {
   connection.query(
     'SELECT awards, id FROM `Reviews`',
     function(err, results) {
-      debugger;
       var id =  results[0].id;
       var awards =  JSON.parse(results[0].awards);
       var oldValue = awards['Deep Thoughts'];
