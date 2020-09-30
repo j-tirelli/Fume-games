@@ -10,7 +10,7 @@ module.exports = {
   "test": {
     "username": process.env.DB_USERNAME,
     "password": process.env.DB_PASSWORD,
-    "database": "reviewsComponent-test",
+    "database": "reviewsComponent-dev",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
