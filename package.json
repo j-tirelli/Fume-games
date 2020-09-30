@@ -5,14 +5,13 @@
   "main": "index.js",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "morgan": "^1.10.0",
-    "mysql2": "^2.2.5",
     "nodemon": "^2.0.4"
   },
   "devDependencies": {
-    "faker": "^5.1.0"
+    "morgan": "^1.10.0"
   },
   "scripts": {
+    "installAll": "npm install && cd database && npm install && cd ../server && npm install",
     "initialize": "cd database && npm run database && npm run migrate && npm run seed",
     "test": "echo \"Error: no test specified\" && exit 1",
     "clearDB": "cd database && npm run unseed && npm run unmigrate && npm run unDB"
