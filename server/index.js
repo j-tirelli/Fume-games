@@ -5,6 +5,7 @@ const app = express()
 const port = 3000
 
 app.get('/moist-air/reviews', (req, res, next) => {
+  // debugger
   db.getReviews(req.query.gameID)
     .then((data) => {
       res.send(data);
@@ -17,7 +18,6 @@ app.get('/moist-air/reviews', (req, res, next) => {
 app.patch('/moist-air/reviews', (req, res, next) => {
   var dataToChange = { key: req.query.key, val: req.query.value };
   db.updateReview(req.query.reviewID, dataToChange)
-
     .then((data) => {
       res.send(data);
     })

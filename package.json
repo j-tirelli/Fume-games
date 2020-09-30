@@ -4,6 +4,7 @@
   "description": "reviews module and footer",
   "main": "index.js",
   "dependencies": {
+    "axios": "^0.20.0",
     "dotenv": "^8.2.0",
     "nodemon": "^2.0.4"
   },
@@ -12,10 +13,11 @@
     "morgan": "^1.10.0"
   },
   "scripts": {
+    "clearDB": "cd database && npm run unseed && npm run unmigrate && npm run unDB",
     "installAll": "npm install && cd database && npm install && cd ../server && npm install",
     "initialize": "cd database && npm run database && npm run migrate && npm run seed",
-    "test": "cd tests && jest --forceExit",
-    "clearDB": "cd database && npm run unseed && npm run unmigrate && npm run unDB"
+    "start": "nodemon server/index.js",
+    "test": "cd tests && jest --detectOpenHandles"
   },
   "repository": {
     "type": "git",
