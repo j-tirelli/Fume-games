@@ -8,12 +8,13 @@
     "nodemon": "^2.0.4"
   },
   "devDependencies": {
+    "jest": "^26.4.2",
     "morgan": "^1.10.0"
   },
   "scripts": {
     "installAll": "npm install && cd database && npm install && cd ../server && npm install",
     "initialize": "cd database && npm run database && npm run migrate && npm run seed",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cd tests && jest --forceExit",
     "clearDB": "cd database && npm run unseed && npm run unmigrate && npm run unDB"
   },
   "repository": {
