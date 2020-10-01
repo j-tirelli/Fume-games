@@ -1,17 +1,28 @@
 import React, { useState } from "react";
 import styled from 'styled-components'
 
-import Header from "./Header.jsx"
+import Header from "./Header/Header.jsx"
 import OverallReviews from "./OverallReviews.jsx"
 import RecentReviews from "./RecentReviews.jsx"
 // import GlobalFonts from '../fonts/fonts.js';
 var App = (props) => {
 
   const Wrapper = styled.section`
-    padding: 4em;
     background: #1B2838;
     color: #acb2b8;
     font-size: 14px;
+    width: 100%;
+    // margin: 0 auto;
+  `;
+
+  const ReviewSection = styled.section`
+    // padding: 4em;
+    background: #1B2838;
+    color: #acb2b8;
+    font-size: 14px;
+    max-width: 940px;
+    min-width: 940px;
+    margin: 0 auto;
   `;
 
   const Heading = styled.h2`
@@ -22,11 +33,12 @@ var App = (props) => {
 
   return (
     <Wrapper>
-      {/* <GlobalFonts /> */}
-      <Heading>CUSTOMER REVIEWS</Heading>
-      <Header />
-      <OverallReviews />
-      <RecentReviews />
+      <ReviewSection>
+        <Heading>CUSTOMER REVIEWS</Heading>
+        <Header />
+        <OverallReviews />
+        <RecentReviews />
+      </ReviewSection>
     </Wrapper>
   );
 }
