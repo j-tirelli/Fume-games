@@ -25,7 +25,7 @@ var Header = (props) => {
   return (
     <div>
       <Review_histogram_rollup_section>
-        <OverallHeader />
+        <OverallHeader  score={props.score}/>
         <RecentHeader />
       </Review_histogram_rollup_section>
       <ReviewsFilterOptions>Stuff goes here.</ReviewsFilterOptions>

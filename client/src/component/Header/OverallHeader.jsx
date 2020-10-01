@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components'
+import SummaryScore from '../Reusable/SummaryScore.jsx'
 
 const UserReviewsSummaryBar = styled.div`
   padding: 10px;
@@ -11,19 +12,6 @@ const UserReviewsSummaryBar = styled.div`
   font-size: 15px;
   width: 585px;
   height: 43px;
-`;
-
-const GameReviewSummary = styled.span`
-  color: #c35c2c;
-  cursor: help;
-  font-family: Arial;
-  font-weight: bold;
-  font-size: 17px;
-  line-height: 9px;
-  margin: 0;
-  padding: 0;
-  text-shadow: 1px 1px rgba( 0, 0, 0, 0.2 );
-  vertical-align: top;
 `;
 
 const Title = styled.div`
@@ -39,7 +27,7 @@ const ReviewCount = styled.span`
   font-size: 12px;
   margin: 0;
   padding: 0 0 5px;
-  vertical-align: top;
+  vertical-align: bottom;
 `;
 
 
@@ -49,8 +37,8 @@ var OverallHeader = (props) => {
     <UserReviewsSummaryBar>
       <div>
         <Title>Overall Reviews:</Title>
-        <GameReviewSummary>Mixed</GameReviewSummary> <ReviewCount>(18 reviews)</ReviewCount> {/* Make Dynamic and test for color change */}
-        <a class="tooltip" data-tooltip-text="This summary uses only reviews written by customers that purchased the game directly from Moist Air."><img src="assets/icon_questionmark.png" /></a>
+        <SummaryScore score={props.score}></SummaryScore> <ReviewCount>(18 reviews)</ReviewCount> {/* Make Dynamic and test for color change */}
+        <a className="tooltip" alt="This summary uses only reviews written by customers that purchased the game directly from Moist Air."><img src="assets/icon_questionmark.png" /></a>
       </div>
     </UserReviewsSummaryBar>
 
