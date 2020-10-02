@@ -12,12 +12,12 @@ const Wrapper = styled.div`
   padding-bottom: 20px;
   `;
 
-  const ReviewsFilterOptions = styled.div`
-    font-size: 12px;
-    padding: 10px;
-    margin-bottom: 30px;
-    background-color: #1f2f42;
-  `;
+const ReviewsFilterOptions = styled.div`
+  font-size: 12px;
+  padding: 10px;
+  margin-bottom: 30px;
+  background-color: #1f2f42;
+`;
 
 var ResultsSummary = (props) => {
   return (
