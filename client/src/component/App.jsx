@@ -3,14 +3,15 @@ import styled from 'styled-components'
 
 import Header from "./Header/Header.jsx"
 import ResultsSummary from "./FilterInfo/ResultsSummary.jsx"
-import OverallReviews from "./OverallReviews.jsx"
-import RecentReviews from "./RecentReviews.jsx"
+import OverallReviews from "./OverallReviews/OverallReviews.jsx"
+import RecentReviews from "./Recent/RecentReviews.jsx"
 // import GlobalFonts from '../fonts/fonts.js';
 var App = (props) => {
 
   const Wrapper = styled.section`
     background: #1B2838;
     color: #acb2b8;
+    font-family: Arial;
     font-size: 14px;
     width: 100%;
     // margin: 0 auto;
@@ -55,7 +56,6 @@ var App = (props) => {
         <ResultsSummary  score={props.score} count={62}/>
         {/* <Wrapper> */}
           <LeftCol>
-            Suff
             <OverallReviews />
           </LeftCol>
           <RightCol>
