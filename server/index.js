@@ -4,7 +4,7 @@ const db = require('../database');
 const app = express()
 const port = 3000
 
-// app.use(express.static('client/dist'))
+app.use('/', express.static('client/dist'))
 
 
 app.get('/moist-air/reviews', (req, res, next) => {

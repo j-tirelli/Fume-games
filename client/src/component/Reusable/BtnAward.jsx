@@ -34,7 +34,7 @@ var BtnAward = (props) => {
   return (
     <Wrapper>
       <Award>
-        <Icon src="../../../dist/assets/award_icon.svg" height="16"/> Award
+        <Icon src="../../../assets/award_icon.svg" height="16"/> Award
       </Award>
     </Wrapper>
   );

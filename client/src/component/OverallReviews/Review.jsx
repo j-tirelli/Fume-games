@@ -152,7 +152,7 @@ var Review = (props) => {
     <Wrapper>
       <MainBody>
         <Left>
-          <Avatar avatar='../../../dist/assets/userimg.jpg' />
+          <Avatar avatar='../../../assets/userimg.jpg' />
           <InlineUser>
             <Username>Banake</Username>
             <GamesCount>2,122 products in account</GamesCount>
@@ -161,8 +161,8 @@ var Review = (props) => {
         </Left>
         <Right>
           <Stats>
-            <Thumbs thumb='../../../dist/assets/icon_thumbsUp_v6.png' dim='40'/>
-              <Icon src="../../../dist/assets/icon_review_steam.png" alt="Product purchased directly from Steam"  />
+            <Thumbs thumb='../../../assets/icon_thumbsUp_v6.png' dim='40'/>
+              <Icon src="../../../assets/icon_review_steam.png" alt="Product purchased directly from Steam"  />
             <Title>{(props.recommended) ? 'Recommended' : 'Not Recommended' }</Title>
             <Hours>2.1 hrs on record (0.2 hrs at review time)</Hours>
           </Stats>

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import styled from 'styled-components'
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import axios from 'axios';
 
 import Header from "./Header/Header.jsx"
 import ResultsSummary from "./FilterInfo/ResultsSummary.jsx"
@@ -48,6 +49,31 @@ var App = (props) => {
     margin-left: 14px;
     float: right;
   `;
+
+
+  const [reviews, setReviews] = useState(0);
+
+  // Similar to componentDidMount and componentDidUpdate:
+  useEffect(() => {
+    axios.get('/moist-air/reviews?gameID=1')
+    .then(function (response) {
+      // handle success
+      console.log(response);
+
+      // setReviews({reviews: response.data})
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .then(function () {
+      // always executed
+    });
+    // Update the document title using the browser API
+    document.title = `You got tons of result ${reviews}`;
+  });
+
+
   return (
     <Wrapper>
       <ReviewSection>

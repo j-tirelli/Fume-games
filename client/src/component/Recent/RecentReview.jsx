@@ -137,9 +137,9 @@ var RecentReview = (props) => {
 
     <Wrapper>
       <Stats>
-        <Thumbs thumb='../../../dist/assets/icon_thumbsUp_v6.png' dim='21'/>
+        <Thumbs thumb='../../../assets/icon_thumbsUp_v6.png' dim='21'/>
         <Username>Banake</Username>
-        <Icon src="../../../dist/assets/icon_review_steam.png" alt="Product purchased directly from Steam"  />
+        <Icon src="../../../assets/icon_review_steam.png" alt="Product purchased directly from Steam"  />
         <Hours>0.2 hrs</Hours>
       </Stats>
       <Right>

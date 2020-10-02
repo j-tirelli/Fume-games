@@ -14,7 +14,7 @@ const Wrapper = styled.span`
 `;
 
 const Helpful = styled.i`
-  background: url(../../../dist/assets/icons_16.png);
+  background: url(../../../assets/icons_16.png);
   background-position: -112px -16px;
   display: inline-block;
   height: 16px;
