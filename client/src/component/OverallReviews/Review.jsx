@@ -154,7 +154,7 @@ var Review = (props) => {
         <Left>
           <Avatar avatar='../../../assets/userimg.jpg' />
           <InlineUser>
-            <Username>Banake</Username>
+            <Username>{props.review.username}</Username>
             <GamesCount>2,122 products in account</GamesCount>
           </InlineUser>
           <ReviewCount>49 reviews</ReviewCount>

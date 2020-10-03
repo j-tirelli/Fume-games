@@ -1,10 +1,10 @@
 import React from "react";
 import styled from 'styled-components'
 
+
 var handleColorType = (score) => {
-  if (!score) {
-    return '#FFF'
-  } else if (score === 'Overhwelmingly Positive') {
+  // debugger;
+  if (score === 'Overhwelmingly Positive') {
     return '#66C0F4';
   } else if (score === 'Very Positive') {
     return '#66C0F4'
@@ -19,8 +19,16 @@ var handleColorType = (score) => {
 
 var SummaryScore = (props) => {
   // debugger;
+  return (
+    <GameReviewSummary>{props.score}</GameReviewSummary>
+    );
+
+  }
+
+  export default SummaryScore;
+
   const GameReviewSummary = styled.span`
-    color: ${handleColorType(props.score)};
+    color: ${props => handleColorType(props.children)};
   cursor: help;
   font-family: Arial;
   font-weight: bold;
@@ -31,10 +39,3 @@ var SummaryScore = (props) => {
     text-shadow: 1px 1px rgba( 0, 0, 0, 0.2 );
     vertical-align: middle;
   `;
-  return (
-        <GameReviewSummary>{props.score}</GameReviewSummary>
-  );
-
-}
-
-export default SummaryScore;

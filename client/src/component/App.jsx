@@ -68,7 +68,7 @@ var App = (props) => {
         <ResultsSummary  score={score} count={count}/>
         {/* <Wrapper> */}
           <LeftCol>
-            <OverallReviews reviews={data} />
+            <OverallReviews count={count} reviews={data} />
           </LeftCol>
           <RightCol>
             <RecentReviews />
