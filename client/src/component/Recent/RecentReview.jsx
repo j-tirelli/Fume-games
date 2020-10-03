@@ -11,8 +11,6 @@ var RecentReview = (props) => {
   if (props.review) {
     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     var reviewDate = new Date(props.review.createdAt);
-    var timePast = Date.now() - reviewDate;
-    console.log(timePast)
     reviewDate = months[reviewDate.getMonth()] + ' ' + reviewDate.getDate()
     return (
       <Wrapper>

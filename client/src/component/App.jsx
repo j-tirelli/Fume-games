@@ -8,18 +8,15 @@ import OverallReviews from "./OverallReviews/OverallReviews.jsx"
 import RecentReviews from "./Recent/RecentReviews.jsx"
 var App = (props) => {
 
-
-
   const [data, setData] = useState({ reviews: [] });
+  const [recent, setRecent] = useState({ reviews: [] });
   const [score, setScore] = useState('');
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     axios.get('/moist-air/reviews?gameID=1')
     .then(function (response) {
-      setCount(response.data.length)
-      setData(response.data);
-      setScore(scoreGenerator(response.data));
+      reviewProccesor(response.data);
       document.title = `You got ${response.data.length} reviews`;
     })
     .catch(function (error) {
@@ -29,14 +26,43 @@ var App = (props) => {
     });
   }, []);
 
-  const scoreGenerator = (reviews = []) => {
+  // useEffect(() => {
+  //   axios.patch('/moist-air/reviews?reviewId=1')
+  //   .then(function (response) {
+  //     setCount(response.data.length)
+  //     setData(response.data);
+  //     // setScore(reviewProccesor(response.data));
+  //     document.title = `You got ${response.data.length} reviews`;
+  //   })
+  //   .catch(function (error) {
+  //     console.log(error);
+  //   })
+  //   .then(function () {
+  //   });
+  // }, []);
+
+  const reviewProccesor = (reviews = []) => {
+    setCount(reviews.length)
+    setData(reviews);
     var totalReviews = reviews.length;
     var recommendedCount = 0;
-    reviews.forEach((review) => {
-      if (review.recommended) {
-        recommendedCount++;
-      }
-    });
+    var recentlyPosted = [];
+    if (Array.isArray(reviews) && reviews.length > 0) {
+      reviews.forEach((review, key) => {
+        if (review.recommended) {
+          recommendedCount++;
+        }
+        var reviewDate = new Date(review.createdAt);
+        var timePast = Date.now() - reviewDate;
+        var timePastInDays = timePast / 86400000;
+        if (timePastInDays < 365) {
+          recentlyPosted.push(review);
+        }
+      });
+      recentlyPosted = recentlyPosted.slice(0, 11);
+    }
+    setRecent(recentlyPosted);
+
     var score = Math.floor(recommendedCount/totalReviews * 100);
     var summary = '';
     if (score) {
@@ -54,7 +80,9 @@ var App = (props) => {
         summary = 'Overwhelmingly Negative';
       }
     }
-    return summary;
+    setScore(summary);
+
+    // return summary;
   }
 
     return (
@@ -68,7 +96,7 @@ var App = (props) => {
             <OverallReviews count={count} reviews={data} />
           </LeftCol>
           <RightCol>
-            <RecentReviews reviews={data} />
+            <RecentReviews reviews={recent} />
           </RightCol>
         {/* </Wrapper> */}
       </ReviewSection>
