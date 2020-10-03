@@ -68,7 +68,7 @@ var App = (props) => {
             <OverallReviews count={count} reviews={data} />
           </LeftCol>
           <RightCol>
-            <RecentReviews />
+            <RecentReviews reviews={data} />
           </RightCol>
         {/* </Wrapper> */}
       </ReviewSection>

@@ -17,16 +17,16 @@ var RecentReviews = (props) => {
   return (
     <Wrapper>
       <Heading>Recently Posted</Heading>
-      <RecentReview recommended={true} title='Hello Kitty' />
-      <RecentReview recommended={true} title='Hello Kitty' />
-      <RecentReview recommended={true} title='Hello Kitty' />
-      <RecentReview recommended={true} title='Hello Kitty' />
-      <RecentReview recommended={true} title='Hello Kitty' />
-      <RecentReview recommended={true} title='Hello Kitty' />
-      <RecentReview recommended={true} title='Hello Kitty' />
-      <RecentReview recommended={true} title='Hello Kitty' />
-      <RecentReview recommended={true} title='Hello Kitty' />
-      <RecentReview recommended={true} title='Hello Kitty' />
+      <RecentReview review={props.reviews[0]} title='Hello Kitty' />
+      <RecentReview review={props.reviews[1]} title='Hello Kitty' />
+      <RecentReview review={props.reviews[2]} title='Hello Kitty' />
+      <RecentReview review={props.reviews[3]} title='Hello Kitty' />
+      <RecentReview review={props.reviews[4]} title='Hello Kitty' />
+      <RecentReview review={props.reviews[5]} title='Hello Kitty' />
+      <RecentReview review={props.reviews[6]} title='Hello Kitty' />
+      <RecentReview review={props.reviews[7]} title='Hello Kitty' />
+      <RecentReview review={props.reviews[8]} title='Hello Kitty' />
+      <RecentReview review={props.reviews[9]} title='Hello Kitty' />
     </Wrapper>
   );
 }

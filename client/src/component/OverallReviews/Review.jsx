@@ -8,6 +8,7 @@ import BtnHelpful from '../Reusable/BtnHelpful.jsx'
 import BtnNotHelpful from '../Reusable/BtnNotHelpful.jsx'
 import BtnFunny from '../Reusable/BtnFunny.jsx'
 import BtnAward from '../Reusable/BtnAward.jsx'
+import MetaContainer from '../Reusable/MetaContainer.jsx'
 
 
 
@@ -45,9 +46,11 @@ var Review = (props) => {
                 <BtnHelpful /> <BtnNotHelpful /> <BtnFunny /> <BtnAward />
               </Controls>
               <VoteInfo>
-                {props.review.helpful_count} people found this review helpful
+                < MetaContainer helpful={props.review.helpful_count} funny={props.review.funny_count} />
+              {/* {(props.review.helpful_count > 0) ? `${props.review.helpful_count} people found this review helpful` : ''}
                 <br/>
-                {props.review.funny_count} people found this review funny
+                {(props.review.funny_count > 0) ? `${props.review.funny_count} people found this review funny` : ''} */}
+
               </VoteInfo>
             </div>
           </Right>
@@ -55,11 +58,13 @@ var Review = (props) => {
         </MainBody>
       </Wrapper>
     );
-  } else { return null };
-
+  } else {
+    return null;
+  }
 }
 
 export default Review;
+
 
 const ClearFloats = styled.div`
   clear: both;
@@ -126,7 +131,7 @@ const MainBody = styled.div`
   color: #c1dbf4;
   font-family: Arial;
   font-size: 15px;
-  width: 616px;
+  max-width: 616px;
 `;
 
 const ReviewCount = styled.div`
@@ -139,7 +144,7 @@ const Right = styled.div`
   float: left;
   margin-left: 14px;
   position: relative;
-  width: 400px;
+  max-width: 400px;
 `;
 
 const Stats = styled.div`
@@ -160,7 +165,7 @@ const Username = styled.div`
   margin-bottom: -1px;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 140px;
+  max-width: 140px;
 `;
 
 const Title = styled.div`
@@ -173,7 +178,7 @@ const Title = styled.div`
   position: absolute;
     top: 6px;
     left: 53px;
-  width: 328px;
+  max-width: 328px;
 `;
 
 const PostedDate = styled.div`
