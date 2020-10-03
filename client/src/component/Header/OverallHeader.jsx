@@ -37,7 +37,7 @@ var OverallHeader = (props) => {
     <UserReviewsSummaryBar>
       <div>
         <Title>Overall Reviews:</Title>
-        <SummaryScore score={props.score}></SummaryScore> <ReviewCount>(18 reviews)</ReviewCount> {/* Make Dynamic and test for color change */}
+        <SummaryScore score={props.score}></SummaryScore> <ReviewCount>({props.count} reviews)</ReviewCount>
         <a className="tooltip" alt="This summary uses only reviews written by customers that purchased the game directly from Moist Air."><img src="assets/icon_questionmark.png" /></a>
       </div>
     </UserReviewsSummaryBar>
