@@ -6,7 +6,6 @@ import Header from "./Header/Header.jsx"
 import ResultsSummary from "./FilterInfo/ResultsSummary.jsx"
 import OverallReviews from "./OverallReviews/OverallReviews.jsx"
 import RecentReviews from "./Recent/RecentReviews.jsx"
-// import GlobalFonts from '../fonts/fonts.js';
 var App = (props) => {
 
 
@@ -27,9 +26,7 @@ var App = (props) => {
       console.log(error);
     })
     .then(function () {
-      // always executed
     });
-    // Update the document title using the browser API
   }, []);
 
   const scoreGenerator = (reviews = []) => {

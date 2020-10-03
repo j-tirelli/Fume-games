@@ -31890,7 +31890,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
- // import GlobalFonts from '../fonts/fonts.js';
+
 
 var App = function App(props) {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
@@ -31918,8 +31918,7 @@ var App = function App(props) {
       document.title = "You got ".concat(response.data.length, " reviews");
     })["catch"](function (error) {
       console.log(error);
-    }).then(function () {// always executed
-    }); // Update the document title using the browser API
+    }).then(function () {});
   }, []);
 
   var scoreGenerator = function scoreGenerator() {
@@ -32564,15 +32563,23 @@ var VoteInfo = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_te
 var Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject19());
 
 var Review = function Review(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Wrapper, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MainBody, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Left, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_Avatar_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    avatar: "../../../assets/userimg.jpg"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(InlineUser, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Username, null, props.review.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(GamesCount, null, "2,122 products in account")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ReviewCount, null, "49 reviews")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Right, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Stats, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_Thumbs_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    thumb: "../../../assets/icon_thumbsUp_v6.png",
-    dim: "40"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Icon, {
-    src: "../../../assets/icon_review_steam.png",
-    alt: "Product purchased directly from Steam"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Title, null, props.recommended ? 'Recommended' : 'Not Recommended'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Hours, null, "2.1 hrs on record (0.2 hrs at review time)")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PostedDate, null, "POSTED: OCTOBER 23, 2019"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Content, null, "I mean, It is no 'Garfield Kart', but it is ok."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Hr, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(HelpfulAsk, null, "Was this review helpful?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Controls, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_BtnHelpful_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], null), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_BtnNotHelpful_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], null), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_BtnFunny_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], null), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_BtnAward_jsx__WEBPACK_IMPORTED_MODULE_7__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(VoteInfo, null, "11 people found this review helpful", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "7 people found this review funny"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ClearFloats, null)));
+  if (props.review) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Wrapper, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MainBody, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Left, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_Avatar_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      avatar: props.review.User.avatar,
+      height: "32",
+      width: "32"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(InlineUser, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Username, null, props.review.User.Username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(GamesCount, null, props.review.User.games_owned_count, " products in account")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ReviewCount, null, props.review.User.reviews_count, " reviews")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Right, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Stats, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_Thumbs_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      thumb: "../../../assets/icon_thumbsUp_v6.png",
+      dim: "40"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Icon, {
+      src: "../../../assets/icon_review_steam.png",
+      alt: "Product purchased directly from Steam"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Title, null, props.recommended ? 'Recommended' : 'Not Recommended'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Hours, null, "2.1 hrs on record (0.2 hrs at review time)")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PostedDate, null, "POSTED: OCTOBER 23, 2019"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Content, null, "I mean, It is no 'Garfield Kart', but it is ok."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Hr, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(HelpfulAsk, null, "Was this review helpful?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Controls, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_BtnHelpful_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], null), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_BtnNotHelpful_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], null), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_BtnFunny_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], null), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_BtnAward_jsx__WEBPACK_IMPORTED_MODULE_7__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(VoteInfo, null, "11 people found this review helpful", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "7 people found this review funny"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ClearFloats, null)));
+  } else {
+    return null;
+  }
+
+  ;
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Review);
@@ -32888,7 +32895,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  width: 32px;\n  height: 32px;\n  padding: 1px 5px 1px 0;\n  border-radius: 0;\n  border: none;\n  display: inline-block;\n"]);
+  var data = _taggedTemplateLiteral(["\n  max-width: 32px;\n  max-height: 32px;\n  padding: 1px 5px 1px 0;\n  border-radius: 0;\n  border: none;\n  display: inline-block;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -32901,12 +32908,12 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var ImageStyle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject());
+var ImageStyle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].img(_templateObject());
 
 var SummaryScore = function SummaryScore(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ImageStyle, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ImageStyle, {
     src: props.avatar
-  }));
+  });
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SummaryScore);

@@ -19,7 +19,6 @@ var getReviews = async (GameId) => {
     }],
     where: { GameId }
   });
-  debugger;
   return reviews;
 };
 

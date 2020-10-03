@@ -147,17 +147,17 @@ const Wrapper = styled.div`
 `;
 
 var Review = (props) => {
-  return (
-
-    <Wrapper>
+  if (props.review) {
+    return (
+      <Wrapper>
       <MainBody>
         <Left>
-          <Avatar avatar='../../../assets/userimg.jpg' />
+          <Avatar avatar={props.review.User.avatar} height='32' width='32' />
           <InlineUser>
-            <Username>{props.review.username}</Username>
-            <GamesCount>2,122 products in account</GamesCount>
+            <Username>{props.review.User.Username}</Username>
+            <GamesCount>{props.review.User.games_owned_count} products in account</GamesCount>
           </InlineUser>
-          <ReviewCount>49 reviews</ReviewCount>
+          <ReviewCount>{props.review.User.reviews_count} reviews</ReviewCount>
         </Left>
         <Right>
           <Stats>
@@ -187,7 +187,8 @@ var Review = (props) => {
       </MainBody>
     </Wrapper>
 
-  );
+);
+} else { return null };
 
 }
 
