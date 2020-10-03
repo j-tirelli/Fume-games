@@ -6,7 +6,7 @@ import Header from "./Header/Header.jsx"
 import ResultsSummary from "./FilterInfo/ResultsSummary.jsx"
 import OverallReviews from "./OverallReviews/OverallReviews.jsx"
 import RecentReviews from "./Recent/RecentReviews.jsx"
-var App = (props) => {
+var App = function(props) {
 
   const [data, setData] = useState({ reviews: [] });
   const [recent, setRecent] = useState({ reviews: [] });
@@ -15,7 +15,6 @@ var App = (props) => {
 
   useEffect(() => {
     var id = window.location.search.slice(4);
-    debugger;
     axios.get(`/moist-air/reviews?gameID=${id}`)
     .then(function (response) {
       reviewProccesor(response.data);
@@ -28,9 +27,51 @@ var App = (props) => {
   }, []);
 
   const clickHandler = (id, key, value) => {
-    axios.patch(`/moist-air/reviews?reviewId=${id}&key=${key}&value=${value}`)
+    // debugger;
+    axios.patch(`/moist-air/reviews?reviewID=${id}&key=${key}&value=${value}`)
     .then(function (response) {
-      // setData(response.data);
+      // debugger
+      console.log('response', response)
+      const stringifiedData = JSON.stringify(data);
+      const dataCopy = JSON.parse(stringifiedData);
+      // debugger;
+      var index = 0;
+      while (index < dataCopy.length) {
+        var review = dataCopy[index++];
+        if (review.id === id) {
+          debugger;
+          if (key === 'awards') {
+            review.awards[value]++;
+            break;
+          } else if (key === 'helpful') {
+            review.helpful_count++;
+            break;
+          } else if (key === 'unhelpful') {
+            review.helpful_count--;
+            break;
+          } else if (key === 'funny') {
+            review.funny_count++;
+            break;
+          }
+        }
+      };
+      setData(dataCopy);
+      return dataCopy[index - 1];
+    })
+    .then((changedReview) => {
+      debugger;
+      const stringifiedRecent = JSON.stringify(recent);
+      const recentCopy = JSON.parse(stringifiedRecent);
+      for (var i = 0; i < recentCopy.length; i++) {
+        var review = recentCopy[i];
+        if (review.id === changedReview.id) {
+          debugger;
+          recentCopy[i] = changedReview;
+          break;
+        }
+      }
+      debugger;
+      setRecent(recentCopy);
     })
     .catch(function (error) {
       console.log(error);
@@ -39,44 +80,38 @@ var App = (props) => {
     });
   }
 
-  // useEffect(() => {
-  //   axios.patch('/moist-air/reviews?reviewId=1')
-  //   .then(function (response) {
-  //     setCount(response.data.length)
-  //     setData(response.data);
-  //     // setScore(reviewProccesor(response.data));
-  //     document.title = `You got ${response.data.length} reviews`;
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error);
-  //   })
-  //   .then(function () {
-  //   });
-  // }, []);
-
   const reviewProccesor = (reviews = []) => {
-    setCount(reviews.length)
-    setData(reviews);
+    debugger
+
     var totalReviews = reviews.length;
     var recommendedCount = 0;
     var recentlyPosted = [];
     if (Array.isArray(reviews) && reviews.length > 0) {
       reviews.forEach((review, key) => {
+        // debugger
         if (review.recommended) {
           recommendedCount++;
         }
+        review.awards = JSON.parse(review.awards);
         var reviewDate = new Date(review.createdAt);
         var timePast = Date.now() - reviewDate;
         var timePastInDays = timePast / 86400000;
+        // debugger
         if (timePastInDays < 365) {
           recentlyPosted.push(review);
         }
       });
       recentlyPosted = recentlyPosted.slice(0, 11);
     }
+    setCount(reviews.length);
+    setData(reviews);
     setRecent(recentlyPosted);
+    var score = Math.floor(recommendedCount/totalReviews * 100)
+    var summary = scoreInterpreter(score);
+    setScore(summary);
+  };
 
-    var score = Math.floor(recommendedCount/totalReviews * 100);
+  const scoreInterpreter = (score) => {
     var summary = '';
     if (score) {
       if (score > 95) {
@@ -93,11 +128,10 @@ var App = (props) => {
         summary = 'Overwhelmingly Negative';
       }
     }
-    setScore(summary);
+    return summary;
+  };
 
-    // return summary;
-  }
-
+    console.log('this', clickHandler)
     return (
       <Wrapper>
       <ReviewSection>
@@ -106,10 +140,10 @@ var App = (props) => {
         <ResultsSummary  score={score} count={count}/>
         {/* <Wrapper> */}
           <LeftCol>
-            <OverallReviews count={count} reviews={data} />
+            <OverallReviews clickHandler={clickHandler} count={count} reviews={data} />
           </LeftCol>
           <RightCol>
-            <RecentReviews reviews={recent} />
+            <RecentReviews clickHandler={clickHandler.bind(this)} reviews={recent} />
           </RightCol>
         {/* </Wrapper> */}
       </ReviewSection>

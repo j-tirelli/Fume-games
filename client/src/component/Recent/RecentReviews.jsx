@@ -17,7 +17,7 @@ var RecentReviews = (props) => {
   var recentlyPosted = [];
   if (Array.isArray(props.reviews) && props.reviews.length > 0) {
     props.reviews.forEach((review, key) => {
-      recentlyPosted.push(<RecentReview review={review} key={key}/>)
+      recentlyPosted.push(<RecentReview review={review} key={key} clickHandler={props.clickHandler} />)
     });
     recentlyPosted = recentlyPosted.slice(0, 11);
   }

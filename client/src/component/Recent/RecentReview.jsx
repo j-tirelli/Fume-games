@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import styled from 'styled-components'
 import Thumbs from '../Reusable/Thumbs.jsx'
 import BtnHelpful from '../Reusable/BtnHelpful.jsx'
@@ -7,32 +7,35 @@ import BtnFunny from '../Reusable/BtnFunny.jsx'
 import BtnAward from '../Reusable/BtnAward.jsx'
 import MetaContainer from '../Reusable/MetaContainer.jsx'
 
-var RecentReview = (props) => {
-  if (props.review) {
+var RecentReview = ({ review, clickHandler }) => {
+  if (review) {
     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    var reviewDate = new Date(props.review.createdAt);
+    var reviewDate = new Date(review.createdAt);
     reviewDate = months[reviewDate.getMonth()] + ' ' + reviewDate.getDate()
     return (
       <Wrapper>
         <Stats>
-          <Thumbs thumb={props.review.recommended} dim='21'/>
-          <Username>{props.review.User.Username}</Username>
+          <Thumbs thumb={review.recommended} dim='21'/>
+          <Username>{review.User.Username}</Username>
           <Icon src="../../../assets/icon_review_steam.png" alt="Product purchased directly from Steam"  />
-          <Hours>{props.review.User_game.time_played} hrs</Hours>
+          <Hours>{review.User_game.time_played} hrs</Hours>
         </Stats>
         <Right>
           <PostedDate>POSTED: {reviewDate}</PostedDate>
           <Content>
-            {props.review.body}
+            {review.body}
           </Content>
           <Hr />
           <div>
             <HelpfulAsk>Helpful?</HelpfulAsk>
             <Controls>
-              <BtnHelpful /> <BtnNotHelpful /> <BtnFunny /> <BtnAward />
+              <BtnHelpful id={review.id} clickHandler={clickHandler} />
+              <BtnNotHelpful id={review.id} clickHandler={clickHandler} />
+              <BtnFunny id={review.id} clickHandler={clickHandler} />
+              <BtnAward id={review.id} clickHandler={clickHandler} />
             </Controls>
             <VoteInfo>
-              < MetaContainer helpful={props.review.helpful_count} funny={props.review.funny_count} />
+              < MetaContainer awards={review.awards} helpful={review.helpful_count} funny={review.funny_count} />
             </VoteInfo>
           </div>
         </Right>

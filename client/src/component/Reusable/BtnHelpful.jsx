@@ -22,9 +22,15 @@ const Helpful = styled.i`
   width: 16px;
 `;
 
-var BtnHelpful = (props) => {
+var BtnHelpful = ({id, clickHandler}) => {
+  const handleClick = (event, cb) => {
+    console.log(cb)
+    // debugger;
+    cb(id, 'helpful')
+  }
+
   return (
-    <Wrapper>
+    <Wrapper onClick={(event) => handleClick(event, clickHandler)}>
       <Helpful /> Yes
     </Wrapper>
   );
