@@ -23,10 +23,9 @@ const Helpful = styled.i`
 `;
 
 var BtnHelpful = ({id, clickHandler}) => {
+
   const handleClick = (event, cb) => {
-    console.log(cb)
-    // debugger;
-    cb(id, 'helpful')
+    cb(id, 'helpful');
   }
 
   return (

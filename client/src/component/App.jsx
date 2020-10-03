@@ -27,19 +27,15 @@ var App = function(props) {
   }, []);
 
   const clickHandler = (id, key, value) => {
-    // debugger;
     axios.patch(`/moist-air/reviews?reviewID=${id}&key=${key}&value=${value}`)
     .then(function (response) {
-      // debugger
       console.log('response', response)
       const stringifiedData = JSON.stringify(data);
       const dataCopy = JSON.parse(stringifiedData);
-      // debugger;
       var index = 0;
       while (index < dataCopy.length) {
         var review = dataCopy[index++];
         if (review.id === id) {
-          debugger;
           if (key === 'awards') {
             review.awards[value]++;
             break;
@@ -59,18 +55,15 @@ var App = function(props) {
       return dataCopy[index - 1];
     })
     .then((changedReview) => {
-      debugger;
       const stringifiedRecent = JSON.stringify(recent);
       const recentCopy = JSON.parse(stringifiedRecent);
       for (var i = 0; i < recentCopy.length; i++) {
         var review = recentCopy[i];
         if (review.id === changedReview.id) {
-          debugger;
           recentCopy[i] = changedReview;
           break;
         }
       }
-      debugger;
       setRecent(recentCopy);
     })
     .catch(function (error) {
@@ -81,14 +74,12 @@ var App = function(props) {
   }
 
   const reviewProccesor = (reviews = []) => {
-    debugger
 
     var totalReviews = reviews.length;
     var recommendedCount = 0;
     var recentlyPosted = [];
     if (Array.isArray(reviews) && reviews.length > 0) {
       reviews.forEach((review, key) => {
-        // debugger
         if (review.recommended) {
           recommendedCount++;
         }
@@ -96,7 +87,6 @@ var App = function(props) {
         var reviewDate = new Date(review.createdAt);
         var timePast = Date.now() - reviewDate;
         var timePastInDays = timePast / 86400000;
-        // debugger
         if (timePastInDays < 365) {
           recentlyPosted.push(review);
         }

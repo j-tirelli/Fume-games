@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 import Thumbs from '../Reusable/Thumbs.jsx'
 import BtnHelpful from '../Reusable/BtnHelpful.jsx'
-import BtnNotHelpful from '../Reusable/BtnNotHelpful.jsx'
+import BtnUnHelpful from '../Reusable/BtnUnHelpful.jsx'
 import BtnFunny from '../Reusable/BtnFunny.jsx'
 import BtnAward from '../Reusable/BtnAward.jsx'
 import MetaContainer from '../Reusable/MetaContainer.jsx'
@@ -30,7 +30,7 @@ var RecentReview = ({ review, clickHandler }) => {
             <HelpfulAsk>Helpful?</HelpfulAsk>
             <Controls>
               <BtnHelpful id={review.id} clickHandler={clickHandler} />
-              <BtnNotHelpful id={review.id} clickHandler={clickHandler} />
+              <BtnUnHelpful id={review.id} clickHandler={clickHandler} />
               <BtnFunny id={review.id} clickHandler={clickHandler} />
               <BtnAward id={review.id} clickHandler={clickHandler} />
             </Controls>

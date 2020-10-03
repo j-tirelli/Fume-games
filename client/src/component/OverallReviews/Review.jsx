@@ -5,7 +5,7 @@ import axios from 'axios';
 import Avatar from '../Reusable/Avatar.jsx'
 import Thumbs from '../Reusable/Thumbs.jsx'
 import BtnHelpful from '../Reusable/BtnHelpful.jsx'
-import BtnNotHelpful from '../Reusable/BtnNotHelpful.jsx'
+import BtnUnHelpful from '../Reusable/BtnUnHelpful.jsx'
 import BtnFunny from '../Reusable/BtnFunny.jsx'
 import BtnAward from '../Reusable/BtnAward.jsx'
 import MetaContainer from '../Reusable/MetaContainer.jsx'
@@ -43,7 +43,7 @@ var Review = (props) => {
             <div>
               <HelpfulAsk>Was this review helpful?</HelpfulAsk>
               <Controls>
-                <BtnHelpful /> <BtnNotHelpful /> <BtnFunny /> <BtnAward />
+                <BtnHelpful /> <BtnUnHelpful /> <BtnFunny /> <BtnAward />
               </Controls>
               <VoteInfo>
                 < MetaContainer helpful={props.review.helpful_count} funny={props.review.funny_count} />

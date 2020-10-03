@@ -13,7 +13,7 @@ const Wrapper = styled.span`
   text-decoration: none !important;
 `;
 
-const NotHelpful = styled.i`
+const UnHelpful = styled.i`
   background: url(../../../assets/icons_16.png);
   background-position: -64px -16px;
   display: inline-block;
@@ -22,13 +22,16 @@ const NotHelpful = styled.i`
   width: 16px;
 `;
 
-var BtnNotHelpful = (props) => {
+var BtnUnHelpful = ({id, clickHandler}) => {
+  const handleClick = (event, cb) => {
+    cb(id, 'unhelpful')
+  }
   return (
-    <Wrapper>
-      <NotHelpful /> No
+    <Wrapper onClick={(event) => handleClick(event, clickHandler)}>
+      <UnHelpful /> No
     </Wrapper>
   );
 
 }
 
-export default BtnNotHelpful;
+export default BtnUnHelpful;
