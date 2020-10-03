@@ -32569,12 +32569,12 @@ var Review = function Review(props) {
       height: "32",
       width: "32"
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(InlineUser, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Username, null, props.review.User.Username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(GamesCount, null, props.review.User.games_owned_count, " products in account")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ReviewCount, null, props.review.User.reviews_count, " reviews")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Right, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Stats, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_Thumbs_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      thumb: "../../../assets/icon_thumbsUp_v6.png",
+      thumb: props.review.recommended,
       dim: "40"
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Icon, {
       src: "../../../assets/icon_review_steam.png",
       alt: "Product purchased directly from Steam"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Title, null, props.recommended ? 'Recommended' : 'Not Recommended'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Hours, null, "2.1 hrs on record (0.2 hrs at review time)")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PostedDate, null, "POSTED: OCTOBER 23, 2019"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Content, null, "I mean, It is no 'Garfield Kart', but it is ok."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Hr, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(HelpfulAsk, null, "Was this review helpful?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Controls, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_BtnHelpful_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], null), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_BtnNotHelpful_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], null), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_BtnFunny_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], null), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_BtnAward_jsx__WEBPACK_IMPORTED_MODULE_7__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(VoteInfo, null, "11 people found this review helpful", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "7 people found this review funny"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ClearFloats, null)));
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Title, null, props.review.recommended ? 'Recommended' : 'Not Recommended'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Hours, null, props.review.User_game.time_played, " hours played")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PostedDate, null, "POSTED: OCTOBER 23, 2019"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Content, null, "I mean, It is no 'Garfield Kart', but it is ok."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Hr, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(HelpfulAsk, null, "Was this review helpful?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Controls, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_BtnHelpful_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], null), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_BtnNotHelpful_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], null), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_BtnFunny_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], null), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_BtnAward_jsx__WEBPACK_IMPORTED_MODULE_7__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(VoteInfo, null, "11 people found this review helpful", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "7 people found this review funny"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ClearFloats, null)));
   } else {
     return null;
   }
@@ -33216,8 +33216,16 @@ var ImageStyle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_
 var Thumb = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].img(_templateObject2());
 
 var Thumbs = function Thumbs(props) {
+  var thumb = '';
+
+  if (props.thumb) {
+    thumb = '../../../assets/icon_thumbsUp_v6.png';
+  } else if (props.thumb === false) {
+    thumb = '../../../assets/icon_thumbsDown_v6.png';
+  }
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ImageStyle, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Thumb, {
-    src: props.thumb,
+    src: thumb,
     width: props.dim,
     height: props.dim
   }));

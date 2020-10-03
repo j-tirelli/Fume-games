@@ -161,10 +161,10 @@ var Review = (props) => {
         </Left>
         <Right>
           <Stats>
-            <Thumbs thumb='../../../assets/icon_thumbsUp_v6.png' dim='40'/>
-              <Icon src="../../../assets/icon_review_steam.png" alt="Product purchased directly from Steam"  />
-            <Title>{(props.recommended) ? 'Recommended' : 'Not Recommended' }</Title>
-            <Hours>2.1 hrs on record (0.2 hrs at review time)</Hours>
+            <Thumbs thumb={props.review.recommended} dim='40'/>
+              <Icon src={"../../../assets/icon_review_steam.png"} alt="Product purchased directly from Steam"  />
+            <Title>{(props.review.recommended) ? 'Recommended' : 'Not Recommended' }</Title>
+            <Hours>{props.review.User_game.time_played} hours played</Hours>
           </Stats>
           <PostedDate>POSTED: OCTOBER 23, 2019</PostedDate>
           <Content>
