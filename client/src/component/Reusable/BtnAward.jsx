@@ -32,7 +32,7 @@ const Icon = styled.img`
 
 var BtnAward = (props) => {
   return (
-    <Wrapper>
+    <Wrapper> {/* On click, open modal */}
       <Award>
         <Icon src="../../../assets/award_icon.svg" height="16"/> Award
       </Award>

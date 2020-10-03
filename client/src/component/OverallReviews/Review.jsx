@@ -12,45 +12,44 @@ import MetaContainer from '../Reusable/MetaContainer.jsx'
 
 
 
-var Review = (props) => {
-  if (props.review) {
+var Review = ({ review, clickHandler }) => {
+  if (review) {
     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    var reviewDate = new Date(props.review.createdAt);
+    var reviewDate = new Date(review.createdAt);
     reviewDate = months[reviewDate.getMonth()] + ' ' + reviewDate.getDate()
     return (
       <Wrapper>
         <MainBody>
           <Left>
-            <Avatar avatar={props.review.User.avatar} height='32' width='32' />
+            <Avatar avatar={review.User.avatar} height='32' width='32' />
             <InlineUser>
-              <Username>{props.review.User.Username}</Username>
-              <GamesCount>{props.review.User.games_owned_count} products in account</GamesCount>
+              <Username>{review.User.Username}</Username>
+              <GamesCount>{review.User.games_owned_count} products in account</GamesCount>
             </InlineUser>
-            <ReviewCount>{props.review.User.reviews_count} reviews</ReviewCount>
+            <ReviewCount>{review.User.reviews_count} reviews</ReviewCount>
           </Left>
           <Right>
             <Stats>
-              <Thumbs thumb={props.review.recommended} dim='40'/>
+              <Thumbs thumb={review.recommended} dim='40'/>
                 <Icon src={"../../../assets/icon_review_steam.png"} alt="Product purchased directly from Steam"  />
-              <Title>{(props.review.recommended) ? 'Recommended' : 'Not Recommended' }</Title>
-              <Hours>{props.review.User_game.time_played} hours played</Hours>
+              <Title>{(review.recommended) ? 'Recommended' : 'Not Recommended' }</Title>
+              <Hours>{review.User_game.time_played} hours played</Hours>
             </Stats>
             <PostedDate>POSTED: {reviewDate}</PostedDate>
             <Content>
-              {props.review.body}
+              {review.body}
             </Content>
             <Hr />
             <div>
               <HelpfulAsk>Was this review helpful?</HelpfulAsk>
               <Controls>
-                <BtnHelpful /> <BtnUnHelpful /> <BtnFunny /> <BtnAward />
+                <BtnHelpful id={review.id} clickHandler={clickHandler} />
+                <BtnUnHelpful id={review.id} clickHandler={clickHandler} />
+                <BtnFunny id={review.id} clickHandler={clickHandler} />
+                <BtnAward id={review.id} clickHandler={clickHandler} />
               </Controls>
               <VoteInfo>
-                < MetaContainer helpful={props.review.helpful_count} funny={props.review.funny_count} />
-              {/* {(props.review.helpful_count > 0) ? `${props.review.helpful_count} people found this review helpful` : ''}
-                <br/>
-                {(props.review.funny_count > 0) ? `${props.review.funny_count} people found this review funny` : ''} */}
-
+                < MetaContainer helpful={review.helpful_count} funny={review.funny_count} />
               </VoteInfo>
             </div>
           </Right>
