@@ -32336,12 +32336,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _Reusable_Avatar_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Reusable/Avatar.jsx */ "./src/component/Reusable/Avatar.jsx");
-/* harmony import */ var _Reusable_Thumbs_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Reusable/Thumbs.jsx */ "./src/component/Reusable/Thumbs.jsx");
-/* harmony import */ var _Reusable_BtnHelpful_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Reusable/BtnHelpful.jsx */ "./src/component/Reusable/BtnHelpful.jsx");
-/* harmony import */ var _Reusable_BtnNotHelpful_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Reusable/BtnNotHelpful.jsx */ "./src/component/Reusable/BtnNotHelpful.jsx");
-/* harmony import */ var _Reusable_BtnFunny_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Reusable/BtnFunny.jsx */ "./src/component/Reusable/BtnFunny.jsx");
-/* harmony import */ var _Reusable_BtnAward_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Reusable/BtnAward.jsx */ "./src/component/Reusable/BtnAward.jsx");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "../node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Reusable_Avatar_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Reusable/Avatar.jsx */ "./src/component/Reusable/Avatar.jsx");
+/* harmony import */ var _Reusable_Thumbs_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Reusable/Thumbs.jsx */ "./src/component/Reusable/Thumbs.jsx");
+/* harmony import */ var _Reusable_BtnHelpful_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Reusable/BtnHelpful.jsx */ "./src/component/Reusable/BtnHelpful.jsx");
+/* harmony import */ var _Reusable_BtnNotHelpful_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Reusable/BtnNotHelpful.jsx */ "./src/component/Reusable/BtnNotHelpful.jsx");
+/* harmony import */ var _Reusable_BtnFunny_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Reusable/BtnFunny.jsx */ "./src/component/Reusable/BtnFunny.jsx");
+/* harmony import */ var _Reusable_BtnAward_jsx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Reusable/BtnAward.jsx */ "./src/component/Reusable/BtnAward.jsx");
 function _templateObject19() {
   var data = _taggedTemplateLiteral(["\n  background: linear-gradient(to right, #3a6e8b, #16202d );\n  margin-bottom: 26px;\n  padding-top: 1px;\n"]);
 
@@ -32542,6 +32544,32 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
+
+
+var Review = function Review(props) {
+  if (props.review) {
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var reviewDate = new Date(props.review.createdAt);
+    reviewDate = months[reviewDate.getMonth()] + ' ' + reviewDate.getDate();
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Wrapper, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MainBody, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Left, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_Avatar_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      avatar: props.review.User.avatar,
+      height: "32",
+      width: "32"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(InlineUser, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Username, null, props.review.User.Username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(GamesCount, null, props.review.User.games_owned_count, " products in account")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ReviewCount, null, props.review.User.reviews_count, " reviews")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Right, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Stats, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_Thumbs_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      thumb: props.review.recommended,
+      dim: "40"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Icon, {
+      src: "../../../assets/icon_review_steam.png",
+      alt: "Product purchased directly from Steam"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Title, null, props.review.recommended ? 'Recommended' : 'Not Recommended'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Hours, null, props.review.User_game.time_played, " hours played")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PostedDate, null, "POSTED: ", reviewDate), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Content, null, props.review.body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Hr, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(HelpfulAsk, null, "Was this review helpful?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Controls, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_BtnHelpful_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], null), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_BtnNotHelpful_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], null), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_BtnFunny_jsx__WEBPACK_IMPORTED_MODULE_7__["default"], null), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_BtnAward_jsx__WEBPACK_IMPORTED_MODULE_8__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(VoteInfo, null, props.review.helpful_count, " people found this review helpful", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), props.review.funny_count, " people found this review funny"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ClearFloats, null)));
+  } else {
+    return null;
+  }
+
+  ;
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Review);
 var ClearFloats = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject());
 var Content = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject2());
 var Controls = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject3());
@@ -32561,31 +32589,6 @@ var Title = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templ
 var PostedDate = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject17());
 var VoteInfo = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject18());
 var Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject19());
-
-var Review = function Review(props) {
-  if (props.review) {
-    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    var reviewDate = new Date(props.review.createdAt);
-    reviewDate = months[reviewDate.getMonth()] + ' ' + reviewDate.getDate();
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Wrapper, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MainBody, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Left, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_Avatar_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      avatar: props.review.User.avatar,
-      height: "32",
-      width: "32"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(InlineUser, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Username, null, props.review.User.Username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(GamesCount, null, props.review.User.games_owned_count, " products in account")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ReviewCount, null, props.review.User.reviews_count, " reviews")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Right, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Stats, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_Thumbs_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      thumb: props.review.recommended,
-      dim: "40"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Icon, {
-      src: "../../../assets/icon_review_steam.png",
-      alt: "Product purchased directly from Steam"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Title, null, props.review.recommended ? 'Recommended' : 'Not Recommended'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Hours, null, props.review.User_game.time_played, " hours played")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PostedDate, null, "POSTED: ", reviewDate), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Content, null, props.review.body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Hr, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(HelpfulAsk, null, "Was this review helpful?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Controls, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_BtnHelpful_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], null), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_BtnNotHelpful_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], null), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_BtnFunny_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], null), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Reusable_BtnAward_jsx__WEBPACK_IMPORTED_MODULE_7__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(VoteInfo, null, "11 people found this review helpful", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "7 people found this review funny"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ClearFloats, null)));
-  } else {
-    return null;
-  }
-
-  ;
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Review);
 
 /***/ }),
 

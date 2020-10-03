@@ -1,11 +1,65 @@
-import React from "react";
+import React from 'react';
 import styled from 'styled-components'
+import axios from 'axios';
+
 import Avatar from '../Reusable/Avatar.jsx'
 import Thumbs from '../Reusable/Thumbs.jsx'
 import BtnHelpful from '../Reusable/BtnHelpful.jsx'
 import BtnNotHelpful from '../Reusable/BtnNotHelpful.jsx'
 import BtnFunny from '../Reusable/BtnFunny.jsx'
 import BtnAward from '../Reusable/BtnAward.jsx'
+
+
+
+var Review = (props) => {
+  if (props.review) {
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var reviewDate = new Date(props.review.createdAt);
+    reviewDate = months[reviewDate.getMonth()] + ' ' + reviewDate.getDate()
+    return (
+      <Wrapper>
+        <MainBody>
+          <Left>
+            <Avatar avatar={props.review.User.avatar} height='32' width='32' />
+            <InlineUser>
+              <Username>{props.review.User.Username}</Username>
+              <GamesCount>{props.review.User.games_owned_count} products in account</GamesCount>
+            </InlineUser>
+            <ReviewCount>{props.review.User.reviews_count} reviews</ReviewCount>
+          </Left>
+          <Right>
+            <Stats>
+              <Thumbs thumb={props.review.recommended} dim='40'/>
+                <Icon src={"../../../assets/icon_review_steam.png"} alt="Product purchased directly from Steam"  />
+              <Title>{(props.review.recommended) ? 'Recommended' : 'Not Recommended' }</Title>
+              <Hours>{props.review.User_game.time_played} hours played</Hours>
+            </Stats>
+            <PostedDate>POSTED: {reviewDate}</PostedDate>
+            <Content>
+              {props.review.body}
+            </Content>
+            <Hr />
+            <div>
+              <HelpfulAsk>Was this review helpful?</HelpfulAsk>
+              <Controls>
+                <BtnHelpful /> <BtnNotHelpful /> <BtnFunny /> <BtnAward />
+              </Controls>
+              <VoteInfo>
+                {props.review.helpful_count} people found this review helpful
+                <br/>
+                {props.review.funny_count} people found this review funny
+              </VoteInfo>
+            </div>
+          </Right>
+          <ClearFloats></ClearFloats>
+        </MainBody>
+      </Wrapper>
+    );
+  } else { return null };
+
+}
+
+export default Review;
 
 const ClearFloats = styled.div`
   clear: both;
@@ -145,54 +199,3 @@ const Wrapper = styled.div`
   margin-bottom: 26px;
   padding-top: 1px;
 `;
-
-var Review = (props) => {
-  if (props.review) {
-    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    var reviewDate = new Date(props.review.createdAt);
-    reviewDate = months[reviewDate.getMonth()] + ' ' + reviewDate.getDate()
-    return (
-      <Wrapper>
-      <MainBody>
-        <Left>
-          <Avatar avatar={props.review.User.avatar} height='32' width='32' />
-          <InlineUser>
-            <Username>{props.review.User.Username}</Username>
-            <GamesCount>{props.review.User.games_owned_count} products in account</GamesCount>
-          </InlineUser>
-          <ReviewCount>{props.review.User.reviews_count} reviews</ReviewCount>
-        </Left>
-        <Right>
-          <Stats>
-            <Thumbs thumb={props.review.recommended} dim='40'/>
-              <Icon src={"../../../assets/icon_review_steam.png"} alt="Product purchased directly from Steam"  />
-            <Title>{(props.review.recommended) ? 'Recommended' : 'Not Recommended' }</Title>
-            <Hours>{props.review.User_game.time_played} hours played</Hours>
-          </Stats>
-          <PostedDate>POSTED: {reviewDate}</PostedDate>
-          <Content>
-            {props.review.body}
-          </Content>
-          <Hr />
-          <div>
-            <HelpfulAsk>Was this review helpful?</HelpfulAsk>
-            <Controls>
-              <BtnHelpful /> <BtnNotHelpful /> <BtnFunny /> <BtnAward />
-            </Controls>
-            <VoteInfo>
-              11 people found this review helpful
-              <br/>
-              7 people found this review funny
-            </VoteInfo>
-          </div>
-        </Right>
-        <ClearFloats></ClearFloats>
-      </MainBody>
-    </Wrapper>
-
-);
-} else { return null };
-
-}
-
-export default Review;
