@@ -148,6 +148,9 @@ const Wrapper = styled.div`
 
 var Review = (props) => {
   if (props.review) {
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var reviewDate = new Date(props.review.createdAt);
+    reviewDate = months[reviewDate.getMonth()] + ' ' + reviewDate.getDate()
     return (
       <Wrapper>
       <MainBody>
@@ -166,9 +169,9 @@ var Review = (props) => {
             <Title>{(props.review.recommended) ? 'Recommended' : 'Not Recommended' }</Title>
             <Hours>{props.review.User_game.time_played} hours played</Hours>
           </Stats>
-          <PostedDate>POSTED: OCTOBER 23, 2019</PostedDate>
+          <PostedDate>POSTED: {reviewDate}</PostedDate>
           <Content>
-            I mean, It is no 'Garfield Kart', but it is ok.
+            {props.review.body}
           </Content>
           <Hr />
           <div>
