@@ -18,6 +18,11 @@ module.exports = {
         allowNull: false,
         onUpdate: 'cascade'
       },
+      UserGameId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        onUpdate: 'cascade'
+      },
       time_played: {
         defaultValue: 0,
         type: Sequelize.INTEGER

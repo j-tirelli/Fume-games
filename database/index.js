@@ -9,7 +9,17 @@ const sequelize = new Sequelize('reviews', process.env.DB_USERNAME, process.env.
 });
 
 var getReviews = async (GameId) => {
-  const reviews = await models.Review.findAll({ where: { GameId } });
+  const reviews = await models.Review.findAll({
+    include: [{
+      model: models.User,
+    }, {
+      model: models.Game,
+    }, {
+      model: models.User_game,
+    }],
+    where: { GameId }
+  });
+  debugger;
   return reviews;
 };
 

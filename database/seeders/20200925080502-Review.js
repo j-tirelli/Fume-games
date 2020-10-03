@@ -18,6 +18,7 @@ module.exports = {
           if (fakeUser[result.username] > 0) {
             var GameId = result.GameId;
             var UserId = result.UserId;
+            var UserGameId = UserId + GameId;
             var recommended = faker.random.boolean();
             var body = faker.lorem.paragraph();
             var helpful_count = faker.random.number({min: 0, max: 27});
@@ -35,7 +36,7 @@ module.exports = {
             var awards = `{"Treasure":${treasure},"Mind Blown":${mindBlown},"Golden Unicorn":${goldenUnicorn},"Deep Thoughts":${deepThoughts},"Heartwarming":${heartwarming},"Hilarious":${hilarious},"Hot Take":${hotTake},"Poetry":${poetry},"Extra Helpful":${extraHelpful}}`;
             var createdAt = faker.date.between('2009-01-01', '2020-09-05');
             var updatedAt = createdAt;
-            reviews.push({ GameId, UserId, recommended, body, helpful_count, funny_count, comments_count, awards, createdAt, updatedAt });
+            reviews.push({ GameId, UserId, UserGameId, recommended, body, helpful_count, funny_count, comments_count, awards, createdAt, updatedAt });
           }
         })
       })
