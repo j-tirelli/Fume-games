@@ -14,10 +14,11 @@ var App = (props) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    axios.get('/moist-air/reviews?gameID=1')
+    var id = window.location.search.slice(4);
+    debugger;
+    axios.get(`/moist-air/reviews?gameID=${id}`)
     .then(function (response) {
       reviewProccesor(response.data);
-      document.title = `You got ${response.data.length} reviews`;
     })
     .catch(function (error) {
       console.log(error);
@@ -25,6 +26,18 @@ var App = (props) => {
     .then(function () {
     });
   }, []);
+
+  const clickHandler = (id, key, value) => {
+    axios.patch(`/moist-air/reviews?reviewId=${id}&key=${key}&value=${value}`)
+    .then(function (response) {
+      // setData(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+    .then(function () {
+    });
+  }
 
   // useEffect(() => {
   //   axios.patch('/moist-air/reviews?reviewId=1')
