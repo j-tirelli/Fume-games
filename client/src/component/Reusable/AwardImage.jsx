@@ -1,16 +1,7 @@
 import React from "react";
 import styled from 'styled-components'
 
-const ImageStyle = styled.img`
-  border-radius: 0;
-  border: none;
-  display: inline-block;
-  height: 20px;
-  width: 20px;
-`;
-
 var awardPicker = (awardName) => {
-  debugger;
   if (awardName === 'Deep Thoughts') {
     return 'assets/deep_thoughts_still.png';
   } else if (awardName === 'Extra Helpful') {
@@ -34,14 +25,19 @@ var awardPicker = (awardName) => {
 
 let src = awardPicker
 
-var Award = ({ award }) => {
-  debugger;
+var AwardImage = ({ award, size }) => {
   var src = awardPicker(award);
-  debugger;
   return (
-        <ImageStyle src={src} />
+    <ImageStyle src={src} size={size} />
   );
-
 }
 
-export default Award;
+export default AwardImage;
+
+const ImageStyle = styled.img`
+  border-radius: 0;
+  border: none;
+  display: inline-block;
+  height: ${props => props.size + 'px'};
+  width: ${props => props.size + 'px'};
+`;

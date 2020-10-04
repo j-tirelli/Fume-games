@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components'
-import Award from './Award.jsx'
+import AwardImage from './AwardImage.jsx'
 
 const Button = styled.div`
   background-color: rgba(0, 0, 0, 0.2);
@@ -23,16 +23,22 @@ const Button = styled.div`
   vertical-align: super;
 `;
 
-var Awards = ({ awards }) => {
+
+var Awards = ({ awards, awardHandler }) => {
+
+  var clickHandler = (event, award) => {
+
+    awardHandler(true, award);
+  };
+
   if (awards) {
     var awardsTemplates = [];
     let i = 0;
     for (let award in awards) {
       if (awards[award]) {
-        debugger;
         var btn = (
-          <Button key={i++} >
-            <Award award={award} /> {(awards[award] > 1) ? <ButtonText> { awards[award] } </ButtonText> : ''}
+          <Button key={i++} onClick={(event) => clickHandler(event, award)} >
+            <AwardImage award={award} size='20'/> {(awards[award] > 1) ? <ButtonText> { awards[award] } </ButtonText> : ''}
           </Button>
         )
         awardsTemplates.push(btn)

@@ -6,7 +6,7 @@ import Header from "./Header/Header.jsx"
 import ResultsSummary from "./FilterInfo/ResultsSummary.jsx"
 import OverallReviews from "./OverallReviews/OverallReviews.jsx"
 import RecentReviews from "./Recent/RecentReviews.jsx"
-import Modal from "./Reusable/Modal.jsx";
+import Modal from "./Reusable/Modal/Modal.jsx";
 
 var App = function(props) {
 
@@ -14,6 +14,8 @@ var App = function(props) {
   const [recent, setRecent] = useState({ reviews: [] });
   const [score, setScore] = useState('');
   const [count, setCount] = useState(0);
+  const [showModal, setModal] = useState(false);
+  const [awardSelected, setAward] = useState(null);
 
   useEffect(() => {
     var id = window.location.search.slice(4);
@@ -31,7 +33,6 @@ var App = function(props) {
   const voteHandler = (id, key, value) => {
     axios.patch(`/moist-air/reviews?reviewID=${id}&key=${key}&value=${value}`)
     .then(function (response) {
-      console.log('response', response)
       const stringifiedData = JSON.stringify(data);
       const dataCopy = JSON.parse(stringifiedData);
       var index = 0;
@@ -74,6 +75,15 @@ var App = function(props) {
     .then(function () {
     });
   }
+
+  const modalHandler = (show, selected = null) => {
+    if (show === undefined) {
+      show = !showModal;
+    }
+    setAward(selected);
+    setModal(show);
+  }
+
 
   const reviewProccesor = (reviews = []) => {
 
@@ -123,23 +133,22 @@ var App = function(props) {
     return summary;
   };
 
-    console.log('this', voteHandler)
     return (
       <Wrapper>
-        <Modal />
       <ReviewSection>
         <Heading>CUSTOMER REVIEWS</Heading>
         <Header score={score} count={count}/>
         <ResultsSummary  score={score} count={count}/>
         {/* <Wrapper> */}
           <LeftCol>
-            <OverallReviews voteHandler={voteHandler} count={count} reviews={data} />
+            <OverallReviews awardHandler={modalHandler} voteHandler={voteHandler} count={count} reviews={data} />
           </LeftCol>
           <RightCol>
-            <RecentReviews voteHandler={voteHandler.bind(this)} reviews={recent} />
+            <RecentReviews awardHandler={modalHandler} voteHandler={voteHandler} reviews={recent} />
           </RightCol>
         {/* </Wrapper> */}
       </ReviewSection>
+        <Modal awardHandler={modalHandler} modalToggler={modalHandler} show={showModal} selected={awardSelected} />
     </Wrapper>
   );
 }

@@ -1,6 +1,19 @@
 import React from "react";
 import styled from 'styled-components'
 
+var BtnFunny = ({id, voteHandler}) => {
+  const handleClick = (event, cb) => {
+    cb(id, 'funny')
+  }
+  return (
+    <Wrapper onClick={(event) => handleClick(event, voteHandler)}>
+      <Funny /> Funny
+    </Wrapper>
+  );
+
+}
+
+export default BtnFunny;
 
 const Wrapper = styled.span`
   background: #212c3d;
@@ -21,17 +34,3 @@ const Funny = styled.i`
   vertical-align: text-top;
   width: 16px;
 `;
-
-var BtnFunny = ({id, voteHandler}) => {
-  const handleClick = (event, cb) => {
-    cb(id, 'funny')
-  }
-  return (
-    <Wrapper onClick={(event) => handleClick(event, voteHandler)}>
-      <Funny /> Funny
-    </Wrapper>
-  );
-
-}
-
-export default BtnFunny;
