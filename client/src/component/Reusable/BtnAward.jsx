@@ -1,10 +1,10 @@
 import React from "react";
 import styled from 'styled-components'
 
-var BtnAward = ({ awardHandler }) => {
+var BtnAward = ({ modalToggler }) => {
 
   var clickHandler = (event) => {
-    awardHandler(true);
+    modalToggler(true);
   };
 
   return (

@@ -141,10 +141,10 @@ var App = function(props) {
         <ResultsSummary  score={score} count={count}/>
         {/* <Wrapper> */}
           <LeftCol>
-            <OverallReviews awardHandler={modalHandler} voteHandler={voteHandler} count={count} reviews={data} />
+            <OverallReviews modalToggler={modalHandler} voteHandler={voteHandler} count={count} reviews={data} />
           </LeftCol>
           <RightCol>
-            <RecentReviews awardHandler={modalHandler} voteHandler={voteHandler} reviews={recent} />
+            <RecentReviews modalToggler={modalHandler} voteHandler={voteHandler} reviews={recent} />
           </RightCol>
         {/* </Wrapper> */}
       </ReviewSection>

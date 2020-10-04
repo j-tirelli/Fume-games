@@ -3,23 +3,23 @@ import Review from "./Review.jsx";
 import DynamicHeader from "./DynamicHeader.jsx";
 import styled from 'styled-components'
 
-var OverallReviews = ({ reviews, count, voteHandler, awardHandler }) => {
+var OverallReviews = ({ reviews, count, voteHandler, modalToggler }) => {
 
   return (
     <div>
       <Wrapper>
         <DynamicHeader timeFrame={'Overall'}/>
       </Wrapper>
-      <Review review={reviews[0]} voteHandler={voteHandler} awardHandler={awardHandler} />
-      <Review review={reviews[1]} voteHandler={voteHandler} awardHandler={awardHandler} />
-      <Review review={reviews[2]} voteHandler={voteHandler} awardHandler={awardHandler} />
-      <Review review={reviews[3]} voteHandler={voteHandler} awardHandler={awardHandler} />
-      <Review review={reviews[4]} voteHandler={voteHandler} awardHandler={awardHandler} />
-      <Review review={reviews[5]} voteHandler={voteHandler} awardHandler={awardHandler} />
-      <Review review={reviews[6]} voteHandler={voteHandler} awardHandler={awardHandler} />
-      <Review review={reviews[7]} voteHandler={voteHandler} awardHandler={awardHandler} />
-      <Review review={reviews[8]} voteHandler={voteHandler} awardHandler={awardHandler} />
-      <Review review={reviews[9]} voteHandler={voteHandler} awardHandler={awardHandler} />
+      <Review review={reviews[0]} voteHandler={voteHandler} modalToggler={modalToggler} />
+      <Review review={reviews[1]} voteHandler={voteHandler} modalToggler={modalToggler} />
+      <Review review={reviews[2]} voteHandler={voteHandler} modalToggler={modalToggler} />
+      <Review review={reviews[3]} voteHandler={voteHandler} modalToggler={modalToggler} />
+      <Review review={reviews[4]} voteHandler={voteHandler} modalToggler={modalToggler} />
+      <Review review={reviews[5]} voteHandler={voteHandler} modalToggler={modalToggler} />
+      <Review review={reviews[6]} voteHandler={voteHandler} modalToggler={modalToggler} />
+      <Review review={reviews[7]} voteHandler={voteHandler} modalToggler={modalToggler} />
+      <Review review={reviews[8]} voteHandler={voteHandler} modalToggler={modalToggler} />
+      <Review review={reviews[9]} voteHandler={voteHandler} modalToggler={modalToggler} />
       <LinkWrap> <Link href="#">Browse all {count} reviews</Link></LinkWrap>
     </div>
   );

@@ -24,11 +24,11 @@ const Button = styled.div`
 `;
 
 
-var Awards = ({ awards, awardHandler }) => {
+var Awards = ({ awards, modalToggler }) => {
 
   var clickHandler = (event, award) => {
 
-    awardHandler(true, award);
+    modalToggler(true, award);
   };
 
   if (awards) {

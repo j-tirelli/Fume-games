@@ -7,7 +7,7 @@ import BtnFunny from '../Reusable/BtnFunny.jsx'
 import BtnAward from '../Reusable/BtnAward.jsx'
 import MetaContainer from '../Reusable/MetaContainer.jsx'
 
-var RecentReview = ({ review, voteHandler }) => {
+var RecentReview = ({ review, voteHandler, awardHandler, modalToggler }) => {
   if (review) {
     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     var reviewDate = new Date(review.createdAt);
@@ -32,10 +32,10 @@ var RecentReview = ({ review, voteHandler }) => {
               <BtnHelpful id={review.id} voteHandler={voteHandler} />
               <BtnUnHelpful id={review.id} voteHandler={voteHandler} />
               <BtnFunny id={review.id} voteHandler={voteHandler} />
-              <BtnAward id={review.id} voteHandler={voteHandler} />
+              <BtnAward id={review.id} modalToggler={modalToggler} />
             </Controls>
             <VoteInfo>
-              < MetaContainer awards={review.awards} helpful={review.helpful_count} funny={review.funny_count} />
+              < MetaContainer modalToggler={modalToggler} awards={review.awards} helpful={review.helpful_count} funny={review.funny_count} />
             </VoteInfo>
           </div>
         </Right>

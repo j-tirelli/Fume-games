@@ -13,11 +13,11 @@ const Heading = styled.div`
   padding-bottom:5px;
 `;
 
-var RecentReviews = ({ reviews, voteHandler }) => {
+var RecentReviews = ({ reviews, voteHandler, awardHandler, modalToggler }) => {
   var recentlyPosted = [];
   if (Array.isArray(reviews) && reviews.length > 0) {
     reviews.forEach((review, key) => {
-      recentlyPosted.push(<RecentReview review={review} key={ key} voteHandler={ voteHandler } />)
+      recentlyPosted.push(<RecentReview review={review} key={ key} modalToggler={ modalToggler } voteHandler={ voteHandler } awardHandler={ awardHandler } />)
     });
     recentlyPosted = recentlyPosted.slice(0, 11);
   }
