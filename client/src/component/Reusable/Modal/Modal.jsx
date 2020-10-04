@@ -30,11 +30,10 @@ const Modal = function ({ id = null, modalToggler, voteHandler, selected }) {
 
   var clickHandler = () => {
     debugger;
-    if (!selected) {
-      selected =  '';
+    if (selected) {
+      voteHandler(id, 'awards', selected)
+      modalToggler(null, selected);
     }
-    voteHandler(id, 'awards', selected)
-    modalToggler(null, selected);
   }
 
   const modalBtnGenerator = (selected) => {
