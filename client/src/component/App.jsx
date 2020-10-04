@@ -6,6 +6,8 @@ import Header from "./Header/Header.jsx"
 import ResultsSummary from "./FilterInfo/ResultsSummary.jsx"
 import OverallReviews from "./OverallReviews/OverallReviews.jsx"
 import RecentReviews from "./Recent/RecentReviews.jsx"
+import Modal from "./Reusable/Modal.jsx";
+
 var App = function(props) {
 
   const [data, setData] = useState({ reviews: [] });
@@ -26,7 +28,7 @@ var App = function(props) {
     });
   }, []);
 
-  const clickHandler = (id, key, value) => {
+  const voteHandler = (id, key, value) => {
     axios.patch(`/moist-air/reviews?reviewID=${id}&key=${key}&value=${value}`)
     .then(function (response) {
       console.log('response', response)
@@ -121,19 +123,20 @@ var App = function(props) {
     return summary;
   };
 
-    console.log('this', clickHandler)
+    console.log('this', voteHandler)
     return (
       <Wrapper>
+        <Modal />
       <ReviewSection>
         <Heading>CUSTOMER REVIEWS</Heading>
         <Header score={score} count={count}/>
         <ResultsSummary  score={score} count={count}/>
         {/* <Wrapper> */}
           <LeftCol>
-            <OverallReviews clickHandler={clickHandler} count={count} reviews={data} />
+            <OverallReviews voteHandler={voteHandler} count={count} reviews={data} />
           </LeftCol>
           <RightCol>
-            <RecentReviews clickHandler={clickHandler.bind(this)} reviews={recent} />
+            <RecentReviews voteHandler={voteHandler.bind(this)} reviews={recent} />
           </RightCol>
         {/* </Wrapper> */}
       </ReviewSection>

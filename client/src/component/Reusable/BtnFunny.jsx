@@ -22,12 +22,12 @@ const Funny = styled.i`
   width: 16px;
 `;
 
-var BtnFunny = ({id, clickHandler}) => {
+var BtnFunny = ({id, voteHandler}) => {
   const handleClick = (event, cb) => {
     cb(id, 'funny')
   }
   return (
-    <Wrapper onClick={(event) => handleClick(event, clickHandler)}>
+    <Wrapper onClick={(event) => handleClick(event, voteHandler)}>
       <Funny /> Funny
     </Wrapper>
   );

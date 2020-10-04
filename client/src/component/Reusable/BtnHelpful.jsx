@@ -22,14 +22,14 @@ const Helpful = styled.i`
   width: 16px;
 `;
 
-var BtnHelpful = ({id, clickHandler}) => {
+var BtnHelpful = ({id, voteHandler}) => {
 
   const handleClick = (event, cb) => {
     cb(id, 'helpful');
   }
 
   return (
-    <Wrapper onClick={(event) => handleClick(event, clickHandler)}>
+    <Wrapper onClick={(event) => handleClick(event, voteHandler)}>
       <Helpful /> Yes
     </Wrapper>
   );

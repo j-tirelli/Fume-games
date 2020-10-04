@@ -13,11 +13,11 @@ const Heading = styled.div`
   padding-bottom:5px;
 `;
 
-var RecentReviews = (props) => {
+var RecentReviews = ({ reviews, voteHandler }) => {
   var recentlyPosted = [];
-  if (Array.isArray(props.reviews) && props.reviews.length > 0) {
-    props.reviews.forEach((review, key) => {
-      recentlyPosted.push(<RecentReview review={review} key={key} clickHandler={props.clickHandler} />)
+  if (Array.isArray(reviews) && reviews.length > 0) {
+    reviews.forEach((review, key) => {
+      recentlyPosted.push(<RecentReview review={review} key={ key} voteHandler={ voteHandler } />)
     });
     recentlyPosted = recentlyPosted.slice(0, 11);
   }

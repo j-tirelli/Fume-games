@@ -12,7 +12,7 @@ import MetaContainer from '../Reusable/MetaContainer.jsx'
 
 
 
-var Review = ({ review, clickHandler }) => {
+var Review = ({ review, voteHandler }) => {
   if (review) {
     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     var reviewDate = new Date(review.createdAt);
@@ -43,10 +43,10 @@ var Review = ({ review, clickHandler }) => {
             <div>
               <HelpfulAsk>Was this review helpful?</HelpfulAsk>
               <Controls>
-                <BtnHelpful id={review.id} clickHandler={clickHandler} />
-                <BtnUnHelpful id={review.id} clickHandler={clickHandler} />
-                <BtnFunny id={review.id} clickHandler={clickHandler} />
-                <BtnAward id={review.id} clickHandler={clickHandler} />
+                <BtnHelpful id={review.id} voteHandler={voteHandler} />
+                <BtnUnHelpful id={review.id} voteHandler={voteHandler} />
+                <BtnFunny id={review.id} voteHandler={voteHandler} />
+                <BtnAward id={review.id} voteHandler={voteHandler} />
               </Controls>
               <VoteInfo>
                 < MetaContainer helpful={review.helpful_count} funny={review.funny_count} awards={review.awards} />

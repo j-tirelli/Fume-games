@@ -22,12 +22,12 @@ const UnHelpful = styled.i`
   width: 16px;
 `;
 
-var BtnUnHelpful = ({id, clickHandler}) => {
+var BtnUnHelpful = ({id, voteHandler}) => {
   const handleClick = (event, cb) => {
     cb(id, 'unhelpful')
   }
   return (
-    <Wrapper onClick={(event) => handleClick(event, clickHandler)}>
+    <Wrapper onClick={(event) => handleClick(event, voteHandler)}>
       <UnHelpful /> No
     </Wrapper>
   );

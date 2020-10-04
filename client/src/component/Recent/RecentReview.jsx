@@ -7,7 +7,7 @@ import BtnFunny from '../Reusable/BtnFunny.jsx'
 import BtnAward from '../Reusable/BtnAward.jsx'
 import MetaContainer from '../Reusable/MetaContainer.jsx'
 
-var RecentReview = ({ review, clickHandler }) => {
+var RecentReview = ({ review, voteHandler }) => {
   if (review) {
     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     var reviewDate = new Date(review.createdAt);
@@ -29,10 +29,10 @@ var RecentReview = ({ review, clickHandler }) => {
           <div>
             <HelpfulAsk>Helpful?</HelpfulAsk>
             <Controls>
-              <BtnHelpful id={review.id} clickHandler={clickHandler} />
-              <BtnUnHelpful id={review.id} clickHandler={clickHandler} />
-              <BtnFunny id={review.id} clickHandler={clickHandler} />
-              <BtnAward id={review.id} clickHandler={clickHandler} />
+              <BtnHelpful id={review.id} voteHandler={voteHandler} />
+              <BtnUnHelpful id={review.id} voteHandler={voteHandler} />
+              <BtnFunny id={review.id} voteHandler={voteHandler} />
+              <BtnAward id={review.id} voteHandler={voteHandler} />
             </Controls>
             <VoteInfo>
               < MetaContainer awards={review.awards} helpful={review.helpful_count} funny={review.funny_count} />

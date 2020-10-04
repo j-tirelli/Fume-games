@@ -3,23 +3,23 @@ import Review from "./Review.jsx";
 import DynamicHeader from "./DynamicHeader.jsx";
 import styled from 'styled-components'
 
-var OverallReviews = ({ reviews, count, clickHandler }) => {
+var OverallReviews = ({ reviews, count, voteHandler }) => {
 
   return (
     <div>
       <Wrapper>
         <DynamicHeader timeFrame={'Overall'}/>
       </Wrapper>
-      <Review review={reviews[0]} clickHandler={clickHandler} />
-      <Review review={reviews[1]} clickHandler={clickHandler} />
-      <Review review={reviews[2]} clickHandler={clickHandler} />
-      <Review review={reviews[3]} clickHandler={clickHandler} />
-      <Review review={reviews[4]} clickHandler={clickHandler} />
-      <Review review={reviews[5]} clickHandler={clickHandler} />
-      <Review review={reviews[6]} clickHandler={clickHandler} />
-      <Review review={reviews[7]} clickHandler={clickHandler} />
-      <Review review={reviews[8]} clickHandler={clickHandler} />
-      <Review review={reviews[9]} clickHandler={clickHandler} />
+      <Review review={reviews[0]} voteHandler={voteHandler} />
+      <Review review={reviews[1]} voteHandler={voteHandler} />
+      <Review review={reviews[2]} voteHandler={voteHandler} />
+      <Review review={reviews[3]} voteHandler={voteHandler} />
+      <Review review={reviews[4]} voteHandler={voteHandler} />
+      <Review review={reviews[5]} voteHandler={voteHandler} />
+      <Review review={reviews[6]} voteHandler={voteHandler} />
+      <Review review={reviews[7]} voteHandler={voteHandler} />
+      <Review review={reviews[8]} voteHandler={voteHandler} />
+      <Review review={reviews[9]} voteHandler={voteHandler} />
       <LinkWrap> <Link href="#">Browse all {count} reviews</Link></LinkWrap>
     </div>
   );
