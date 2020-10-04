@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import AwardImage from '../AwardImage.jsx'
 
-const ModalBtn = function ({ award, selected }) {
+const ModalBtn = function ({ award, giveFocus }) {
 
   const imageAnimate = (event) => {
     try {
@@ -29,16 +29,8 @@ const ModalBtn = function ({ award, selected }) {
     }
   };
 
-  const giveFocus = (event) => {
-    try {
-      event.target.focus();
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   return (
-    <Award_Button id={award.name} onMouseEnter={ (event) => imageAnimate(event) } onMouseLeave={() => imageStill(event)} onClick={(event) => giveFocus(event, this)}>
+    <Award_Button id={award.name} onMouseEnter={ (event) => imageAnimate(event) } onMouseLeave={() => imageStill(event)} onClick={(event) => giveFocus(event, award.name)}>
       <AwardImage award={award.name} size='80' />
       <Award_Button_Label>{award.name}</Award_Button_Label>
       <Award_Button_Points><Award_Button_Points_Icon height='16' width='16' src='/assets/steam_points_icon.png' /> {award.cost}</Award_Button_Points>

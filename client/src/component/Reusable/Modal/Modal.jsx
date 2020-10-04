@@ -11,6 +11,7 @@ const Modal = function ({ id = null, modalToggler, voteHandler, selected }) {
     return null;
   }
   body.setAttribute("style", "overflow: hidden;"),
+
   useEffect(() => {
     if (selected) {
       let selectedAward = document.getElementById(selected);
@@ -18,10 +19,42 @@ const Modal = function ({ id = null, modalToggler, voteHandler, selected }) {
     }
   })
 
+  const giveFocus = (event, awardName) => {
+    try {
+      event.target.focus();
+      modalToggler(id, awardName)
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   var clickHandler = () => {
+    debugger;
+    if (!selected) {
+      selected =  '';
+    }
     voteHandler(id, 'awards', selected)
-    modalToggler();
+    modalToggler(null, selected);
   }
+
+  const modalBtnGenerator = (selected) => {
+    var awards =  [
+      { name: 'Treasure', cost: 600 },
+      { name: 'Mind Blown', cost: 1200 },
+      { name: 'Golden Unicorn', cost: 2400 },
+      { name: 'Deep Thoughts', cost: 300 },
+      { name: 'Heartwarming', cost: 300 },
+      { name: 'Hilarious', cost: 300 },
+      { name: 'Hot Take', cost: 300 },
+      { name: 'Poetry', cost: 300 },
+      { name: 'Extra Helpful', cost: 300 }
+    ];
+    const buttons = [];
+    for (var i = 0; i < awards.length; i++) {
+      buttons.push(<ModalBtn award={awards[i]} key={i} id={id} giveFocus={giveFocus} />)
+    }
+    return buttons;
+  };
 
   const buttons = modalBtnGenerator(selected)
   return (
@@ -55,7 +88,6 @@ const Modal = function ({ id = null, modalToggler, voteHandler, selected }) {
               </Modal_Footer_Left>
               <Modal_Footer_RIght>
                 <Award_Buy>
-
                     <Award_Purchase onClick={() => clickHandler()}>Next</Award_Purchase>
                 </Award_Buy>
                 <Modal_Footer_Link href="#">What are Steam Points?</Modal_Footer_Link>
@@ -68,25 +100,6 @@ const Modal = function ({ id = null, modalToggler, voteHandler, selected }) {
   </div>
   );
 }
-
-const modalBtnGenerator = (selected) => {
-  var awards =  [
-    { name: 'Treasure', cost: 600 },
-    { name: 'Mind Blown', cost: 1200 },
-    { name: 'Golden Unicorn', cost: 2400 },
-    { name: 'Deep Thoughts', cost: 300 },
-    { name: 'Heartwarming', cost: 300 },
-    { name: 'Hilarious', cost: 300 },
-    { name: 'Hot Take', cost: 300 },
-    { name: 'Poetry', cost: 300 },
-    { name: 'Extra Helpful', cost: 300 }
-  ];
-  const buttons = [];
-  for (var i = 0; i < awards.length; i++) {
-    buttons.push(<ModalBtn award={awards[i]} key={i} selected={selected} />)
-  }
-  return buttons;
-};
 
 export default Modal;
 
@@ -263,7 +276,7 @@ const Modal_Wrapper = styled.div`
   display: block;
   height: 100%;
   left: 0;
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100vw;
 `;
