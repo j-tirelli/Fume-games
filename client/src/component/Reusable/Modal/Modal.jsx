@@ -19,7 +19,8 @@ const Modal = function ({ id = null, modalToggler, voteHandler, selected }) {
   })
 
   var clickHandler = () => {
-    voteHandler(id, 'award', selected)
+    voteHandler(id, 'awards', selected)
+    modalToggler();
   }
 
   const buttons = modalBtnGenerator(selected)

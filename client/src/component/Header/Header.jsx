@@ -1,7 +1,7 @@
 import React from "react";
-import styled from 'styled-components'
-import OverallHeader from "./OverallHeader.jsx"
-import RecentHeader from "./RecentHeader.jsx"
+import styled from 'styled-components';
+import OverallHeader from "./OverallHeader.jsx";
+import RecentHeader from "./RecentHeader.jsx";
 
 const Review_histogram_rollup_section = styled.div`
   // padding: 10px;
