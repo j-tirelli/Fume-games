@@ -22,12 +22,26 @@ var getReviews = async (GameId) => {
   return reviews;
 };
 
+const allowedAwards = {
+  'Deep Thoughts': true,
+  'Extra Helpful': true,
+  'Golden Unicorn': true,
+  'Heartwarming': true,
+  'Hilarious': true ,
+  'Hot Take': true,
+  'Mind Blown': true,
+  'Poetry': true,
+  'Treasure': true
+};
+
 var updateReview = async (id, dataToChange) => {
   const review = await models.Review.findOne({ where: { id } });
   if (dataToChange.key === 'awards') {
-    let parsedAwards = JSON.parse(review.awards);
-    parsedAwards[dataToChange.val]++;
-    review.awards = JSON.stringify(parsedAwards);
+    if (allowedAwards[dataToChange.val]) {
+      let parsedAwards = JSON.parse(review.awards);
+      parsedAwards[dataToChange.val]++;
+      review.awards = JSON.stringify(parsedAwards);
+    }
   } else if (dataToChange.key === 'funny') {
     review.funny_count++
   } else if (dataToChange.key === 'helpful') {
