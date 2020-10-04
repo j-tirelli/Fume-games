@@ -2,33 +2,11 @@ import React from "react";
 import styled from 'styled-components'
 import AwardImage from './AwardImage.jsx'
 
-const Button = styled.div`
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  color: #647580;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 12px;
-  font-weight: bold;
-  margin: 0 4px;
-  // min-height:
-  padding: 5px;
-  `;
+var Awards = ({ id, awards, modalToggler }) => {
 
-  const ButtonText = styled.span`
-  color: #66c0f4;
-  font-size: 13px;
-  font-weight: bold;
-  padding: 3px;
-  vertical-align: super;
-`;
+  var clickHandler = (id, award, event) => {
 
-
-var Awards = ({ awards, modalToggler }) => {
-
-  var clickHandler = (event, award) => {
-
-    modalToggler(true, award);
+    modalToggler(id, award);
   };
 
   if (awards) {
@@ -37,7 +15,7 @@ var Awards = ({ awards, modalToggler }) => {
     for (let award in awards) {
       if (awards[award]) {
         var btn = (
-          <Button key={i++} onClick={(event) => clickHandler(event, award)} >
+          <Button key={i++} onClick={(event) => clickHandler(id, award, event)} >
             <AwardImage award={award} size='20'/> {(awards[award] > 1) ? <ButtonText> { awards[award] } </ButtonText> : ''}
           </Button>
         )
@@ -55,3 +33,24 @@ var Awards = ({ awards, modalToggler }) => {
 }
 
 export default Awards;
+
+          const Button = styled.div`
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            color: #647580;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 12px;
+            font-weight: bold;
+            margin: 0 4px;
+            // min-height:
+            padding: 5px;
+            `;
+
+            const ButtonText = styled.span`
+            color: #66c0f4;
+            font-size: 13px;
+            font-weight: bold;
+            padding: 3px;
+            vertical-align: super;
+          `;

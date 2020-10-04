@@ -3,19 +3,25 @@ import styled from 'styled-components';
 
 import ModalBtn from './ModalBtn.jsx';
 
-const Modal = function ({show, modalToggler, awardHandler, selected}) {
+const Modal = function ({ id = null, modalToggler, voteHandler, selected }) {
   var body = document.getElementsByTagName('html')[0];
-  if (!show) {
+  // debugger;
+  if (id === null) {
     body.setAttribute("style", "overflow: auto;")
     return null;
   }
-  body.setAttribute("style", "overflow: hidden;")
+  body.setAttribute("style", "overflow: hidden;"),
   useEffect(() => {
     if (selected) {
       let selectedAward = document.getElementById(selected);
       selectedAward.focus();
     }
   })
+
+  var clickHandler = () => {
+    voteHandler(id, 'award', selected)
+  }
+
   const buttons = modalBtnGenerator(selected)
   return (
   <div>
@@ -24,7 +30,7 @@ const Modal = function ({show, modalToggler, awardHandler, selected}) {
         <Modal_Content onClick={(event) => event.stopPropagation()}>
           <Modal_TopBar ></Modal_TopBar>
           <Modal_Content_Container>
-            <Modal_Close onClick={ () => awardHandler() } >&times;</Modal_Close>
+            <Modal_Close onClick={ () => modalToggler() } >&times;</Modal_Close>
             <Award_Header>
               <Award_Title>Give an Award</Award_Title>
               <Award_Description>Use your Steam Points to emphasize this review and grant the reviewer bonus points!</Award_Description>
@@ -48,7 +54,8 @@ const Modal = function ({show, modalToggler, awardHandler, selected}) {
               </Modal_Footer_Left>
               <Modal_Footer_RIght>
                 <Award_Buy>
-                    <Award_Purchase>Next</Award_Purchase>
+
+                    <Award_Purchase onClick={() => clickHandler()}>Next</Award_Purchase>
                 </Award_Buy>
                 <Modal_Footer_Link href="#">What are Steam Points?</Modal_Footer_Link>
               </Modal_Footer_RIght>

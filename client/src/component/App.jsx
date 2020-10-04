@@ -14,7 +14,7 @@ var App = function(props) {
   const [recent, setRecent] = useState({ reviews: [] });
   const [score, setScore] = useState('');
   const [count, setCount] = useState(0);
-  const [showModal, setModal] = useState(false);
+  const [modal, setModal] = useState(null);
   const [awardSelected, setAward] = useState(null);
 
   useEffect(() => {
@@ -76,12 +76,9 @@ var App = function(props) {
     });
   }
 
-  const modalHandler = (show, selected = null) => {
-    if (show === undefined) {
-      show = !showModal;
-    }
+  const modalHandler = (id = null, selected = null) => {
     setAward(selected);
-    setModal(show);
+    setModal(id);
   }
 
 
@@ -148,7 +145,7 @@ var App = function(props) {
           </RightCol>
         {/* </Wrapper> */}
       </ReviewSection>
-        <Modal awardHandler={modalHandler} modalToggler={modalHandler} show={showModal} selected={awardSelected} />
+        <Modal modalToggler={modalHandler} voteHandler={voteHandler} id={modal} selected={awardSelected} />
     </Wrapper>
   );
 }

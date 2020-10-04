@@ -49,7 +49,7 @@ var Review = ({ review, voteHandler, modalToggler }) => {
                 <BtnAward id={review.id} modalToggler={modalToggler} />
               </Controls>
               <VoteInfo>
-                < MetaContainer helpful={review.helpful_count} funny={review.funny_count} awards={review.awards} modalToggler={modalToggler} />
+                < MetaContainer id={review.id} helpful={review.helpful_count} funny={review.funny_count} awards={review.awards} modalToggler={modalToggler} />
               </VoteInfo>
             </div>
           </Right>

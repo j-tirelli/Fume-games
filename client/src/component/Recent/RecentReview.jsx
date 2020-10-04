@@ -35,7 +35,7 @@ var RecentReview = ({ review, voteHandler, awardHandler, modalToggler }) => {
               <BtnAward id={review.id} modalToggler={modalToggler} />
             </Controls>
             <VoteInfo>
-              < MetaContainer modalToggler={modalToggler} awards={review.awards} helpful={review.helpful_count} funny={review.funny_count} />
+              < MetaContainer id={review.id} modalToggler={modalToggler} awards={review.awards} helpful={review.helpful_count} funny={review.funny_count} />
             </VoteInfo>
           </div>
         </Right>

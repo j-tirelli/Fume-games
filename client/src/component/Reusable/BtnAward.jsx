@@ -1,14 +1,14 @@
 import React from "react";
 import styled from 'styled-components'
 
-var BtnAward = ({ modalToggler }) => {
+var BtnAward = ({ id, modalToggler }) => {
 
   var clickHandler = (event) => {
-    modalToggler(true);
+    modalToggler(id, null);
   };
 
   return (
-    <Wrapper onClick={(event) => clickHandler(event)}> {/* On click, open modal */}
+    <Wrapper onClick={(event) => clickHandler(event)}>
       <Award>
         <Icon src="../../../assets/award_icon.svg" /> Award
       </Award>
