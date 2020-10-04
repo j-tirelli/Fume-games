@@ -49,7 +49,7 @@ var Review = ({ review, clickHandler }) => {
                 <BtnAward id={review.id} clickHandler={clickHandler} />
               </Controls>
               <VoteInfo>
-                < MetaContainer helpful={review.helpful_count} funny={review.funny_count} />
+                < MetaContainer helpful={review.helpful_count} funny={review.funny_count} awards={review.awards} />
               </VoteInfo>
             </div>
           </Right>

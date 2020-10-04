@@ -10,11 +10,11 @@ const ImageStyle = styled.img`
   display: inline-block;
 `;
 
-var SummaryScore = (props) => {
+var Avatar = (props) => {
   return (
         <ImageStyle src={props.avatar} />
   );
 
 }
 
-export default SummaryScore;
+export default Avatar;
