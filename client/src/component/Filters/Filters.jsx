@@ -1,21 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import FilterType from "./FilterType.jsx";
-import filterFlyouts from "./FilterData.jsx";
+import inputs from "./FilterData.js";
+import InitialSettings from "./InitialSettings.js";
 import DisplayAs from "./DisplayAs.jsx";
 import ShowGraph from "./ShowGraph/ShowGraph.jsx";
 
-const filterTitles = [ 'Review Type', 'Purchase Type', 'Language', 'Date Range', 'Playtime' ];
+var Filters = ({ filters }) => {
 
-const filters = [];
-for (let i = 0; i < filterTitles.length; i++) {
-  filters.push(<FilterType inputs={filterFlyouts[i]} filterTitle={filterTitles[i]} key={i}/>)
-}
+  const [filterSettings, setFilterSettings] = useState(InitialSettings);
+  const filterList = [];
 
-var Filters = (props) => {
+  for (let i = 0; i < filters.length; i++) {
+    filterList.push(<FilterType inputs={inputs[i]} filterSettings={filterSettings} filterTitle={filters[i]} key={i}/>)
+  }
+
   return (
     <FilterContainer>
-      {filters}
+      {filterList}
       <DisplayAs />
       <ShowGraph />
     </FilterContainer>
