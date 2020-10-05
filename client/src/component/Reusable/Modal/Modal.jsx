@@ -5,7 +5,6 @@ import ModalBtn from './ModalBtn.jsx';
 
 const Modal = function ({ id = null, modalToggler, voteHandler, selected }) {
   var body = document.getElementsByTagName('html')[0];
-  // debugger;
   if (id === null) {
     body.setAttribute("style", "overflow: auto;")
     return null;
@@ -29,7 +28,6 @@ const Modal = function ({ id = null, modalToggler, voteHandler, selected }) {
   };
 
   var clickHandler = () => {
-    debugger;
     if (selected) {
       voteHandler(id, 'awards', selected)
       modalToggler(null, selected);

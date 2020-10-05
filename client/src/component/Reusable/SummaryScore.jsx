@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 
 var handleColorType = (score) => {
-  // debugger;
   if (score === 'Overhwelmingly Positive') {
     return '#66C0F4';
   } else if (score === 'Very Positive') {
@@ -18,7 +17,6 @@ var handleColorType = (score) => {
 }
 
 var SummaryScore = (props) => {
-  // debugger;
   return (
     <GameReviewSummary>{props.score}</GameReviewSummary>
     );

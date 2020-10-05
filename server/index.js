@@ -8,7 +8,6 @@ app.use('/', express.static('client/dist'))
 
 
 app.get('/moist-air/reviews', (req, res, next) => {
-  // debugger
   db.getReviews(req.query.gameID)
     .then((data) => {
       res.send(data);
