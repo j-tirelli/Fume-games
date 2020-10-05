@@ -1,7 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 import FilterType from "./FilterType.jsx";
-import filterFlyouts from "./FilterData.js";
+import filterFlyouts from "./FilterData.jsx";
 
 const filterTitles = [ 'Review Type', 'Purchase Type', 'Language', 'Date Range', 'Playtime' ];
 
