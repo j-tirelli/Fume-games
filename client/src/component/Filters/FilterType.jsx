@@ -8,7 +8,7 @@ var FilterType = ({ filterTitle, inputs }) => {
       <ReviewsFilterTitle>
         { filterTitle }
       </ReviewsFilterTitle>
-      <MenuFlyout inputs={inputs} />
+      <MenuFlyout parent={ReviewsFilterMenu} inputs={inputs} />
     </ReviewsFilterMenu>
     );
   }
@@ -40,4 +40,7 @@ const ReviewsFilterMenu = styled.div`
   float: left;
   padding: 0 10px 0 0;
   position: relative;
+  &:hover{
+    background-color: #c6d4df;
+  }
 `;

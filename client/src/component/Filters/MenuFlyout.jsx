@@ -1,7 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 
-var MenuFlyout = ({ inputs }) => {
+var MenuFlyout = ({ inputs, parent }) => {
   const FlyoutInputs = [];
   for (let key in inputs) {
     let id = inputs[key].id;
@@ -22,7 +22,7 @@ var MenuFlyout = ({ inputs }) => {
 
 
   return (
-    <ReviewsFilterFlyout>
+    <ReviewsFilterFlyout ReviewsFilterMenu={ parent }>
       <FlyoutContent>
         {FlyoutInputs}
       </FlyoutContent>
@@ -40,10 +40,12 @@ const ReviewsFilterFlyout = styled.div`
   color: #556772;
   display: none;
   line-height: 20px;
+  min-width: 100%;
   padding 10px;
   position: absolute;
   z-index: 10;
-  &:hover {
+
+  ${props => props.ReviewsFilterMenu}:hover & {
     display: block;
     background-color: #c6d4df;
   }
