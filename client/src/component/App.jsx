@@ -116,7 +116,6 @@ var App = function(props) {
     var summary = scoreInterpreter(score);
     setCount(totalReviews);
     setScore(summary);
-
     var recentScore = Math.floor(recentlyRecommendedCount/recentlyPosted.length * 100)
     var recentSummary = scoreInterpreter(recentScore);
     setRecentCount(recentlyRecommendedCount);
@@ -125,7 +124,7 @@ var App = function(props) {
 
   const scoreInterpreter = (score) => {
     var summary = '';
-    if (score) {
+    if (score || score === 0) {
       if (score > 95) {
         summary = 'Overhwelmingly Positive';
       } else if (score > 80) {
