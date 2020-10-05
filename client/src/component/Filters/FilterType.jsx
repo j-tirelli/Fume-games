@@ -27,14 +27,6 @@ const ReviewsFilterTitle = styled.div`
   text-transform: uppercase;
 `;
 
-// const ReviewsFilterFlyout = styled.div`
-//   color: #556772;
-//   display: none;
-//   line-height: 20px;
-//   position: absolute;
-//   z-index: 10;
-// `;
-
 const ReviewsFilterMenu = styled.div`
   border-left: 1px solid #2a475e;
   float: left;

@@ -2,6 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 import FilterType from "./FilterType.jsx";
 import filterFlyouts from "./FilterData.jsx";
+import DisplayAs from "./DisplayAs.jsx";
 
 const filterTitles = [ 'Review Type', 'Purchase Type', 'Language', 'Date Range', 'Playtime' ];
 
@@ -14,6 +15,7 @@ var Filters = (props) => {
   return (
     <FilterContainer>
       {filters}
+      <DisplayAs />
     </FilterContainer>
     );
   }
