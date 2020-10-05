@@ -1,6 +1,6 @@
 # Project Name
 
-> MThis project is an excercise in designing a single page application sales portal. This page will make use of interactive components to display video, images, and text content to a potential customer, making use of a service oriented architecture through a proxy server to create one seamless page.
+> This project is an excercise in designing a single page application sales portal. This page will make use of interactive components to display video, images, and text content to a potential customer, making use of a service oriented architecture through a proxy server to create one seamless page.
 
 
 ## Related Projects
