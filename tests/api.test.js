@@ -48,3 +48,58 @@ test('it should update a review\'s awards from the API', async (done) => {
     done(err);
   });
 });
+
+test('it should update a review\'s funny count from the API', async (done) => {
+  var results = await db.getReviews(99);
+  var oldValue = JSON.parse(results[0].get().funny_count);
+  var id = results[0].get().id;
+
+
+  var updateReviews =  async (gameId, { key }) => {
+    const API = 'http://127.0.0.1:3000/moist-air/reviews';
+
+    const patchData = async (query) => {
+      var url = `${API}/?reviewID=${query}&key=${key}`;
+      return await axios.patch(url);
+    };
+    var result = patchData(id);
+    return result;
+  }
+  updateReviews(99, { key: 'funny' })
+  .then((result) => {
+
+    var newValue = result.data.funny_count;
+    expect(newValue).toBe(oldValue + 1);
+    done();
+  })
+  .catch((err) => {
+    done(err);
+  });
+});
+
+test('it should update a review\'s helpful count from the API', async (done) => {
+  var results = await db.getReviews(99);
+  var oldValue = JSON.parse(results[0].get().helpful_count);
+  var id = results[0].get().id;
+
+  var updateReviews =  async (gameId, { key }) => {
+    const API = 'http://127.0.0.1:3000/moist-air/reviews';
+
+    const patchData = async (query) => {
+      var url = `${API}/?reviewID=${query}&key=${key}`;
+      return await axios.patch(url);
+    };
+    var result = patchData(id);
+    return result;
+  }
+  updateReviews(99, { key: 'helpful' })
+  .then((result) => {
+
+    var newValue = result.data.helpful_count;
+    expect(newValue).toBe(oldValue + 1);
+    done();
+  })
+  .catch((err) => {
+    done(err);
+  });
+});
