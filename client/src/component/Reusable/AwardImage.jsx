@@ -41,3 +41,4 @@ const ImageStyle = styled.img`
   height: ${props => props.size + 'px'};
   width: ${props => props.size + 'px'};
 `;
+ImageStyle.displayName = 'ImageStyle ';

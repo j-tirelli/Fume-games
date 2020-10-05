@@ -28,6 +28,7 @@ const Wrapper = styled.span`
   padding: 1px;
   text-decoration: none !important;
 `;
+Wrapper.displayName = 'Wrapper';
 
 const Award = styled.span`
     background: transparent;
@@ -36,8 +37,10 @@ const Award = styled.span`
     line-height: 20px;
 }
 `;
+Award.displayName = 'Award';
 
 const Icon = styled.img`
   height: 16px;
   vertical-align: middle;
 `;
+Icon.displayName = 'Icon';

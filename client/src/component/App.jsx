@@ -21,6 +21,7 @@ var App = function(props) {
 
   useEffect(() => {
     var id = window.location.search.slice(4);
+
     axios.get(`/moist-air/reviews?gameID=${id}`)
     .then(function (response) {
       reviewProccesor(response.data);
@@ -28,8 +29,6 @@ var App = function(props) {
     .catch(function (error) {
       console.log(error);
     })
-    .then(function () {
-    });
   }, []);
 
   const voteHandler = (id, key, value) => {
@@ -106,6 +105,7 @@ var App = function(props) {
           }
         }
       });
+      setRecentCount(recentlyPosted.length);
       recentlyPosted = recentlyPosted.slice(0, 11);
     }
 
@@ -118,7 +118,6 @@ var App = function(props) {
     setScore(summary);
     var recentScore = Math.floor(recentlyRecommendedCount/recentlyPosted.length * 100)
     var recentSummary = scoreInterpreter(recentScore);
-    setRecentCount(recentlyRecommendedCount);
     setRecentScore(recentSummary);
   };
 

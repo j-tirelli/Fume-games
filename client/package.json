@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +20,13 @@
     "@babel/preset-react": "^7.10.4",
     "babel": "^6.23.0",
     "babel-loader": "^8.1.0",
+    "babel-plugin-styled-components": "^1.11.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
+    "jest": "^26.5.0",
+    "jest-environment-enzyme": "^7.1.2",
+    "jest-enzyme": "^7.1.2",
+    "jest-styled-components": "^7.0.3",
     "live-server": "^1.2.1",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12"
