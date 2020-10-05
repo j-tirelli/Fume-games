@@ -13,12 +13,12 @@ const Review_histogram_rollup_section = styled.div`
   min-width: 940px;
 `;
 
-var Header = (props) => {
+var Header = ({ count, score, recentCount, recentScore }) => {
   return (
     <div>
       <Review_histogram_rollup_section>
-        <OverallHeader count={props.count} score={props.score}/>
-        <RecentHeader />
+        <OverallHeader count={count} score={score} />
+        <RecentHeader count={recentCount} score={recentScore} />
       </Review_histogram_rollup_section>
       <Filters />
     </div>

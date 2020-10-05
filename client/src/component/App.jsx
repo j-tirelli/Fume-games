@@ -13,7 +13,9 @@ var App = function(props) {
   const [data, setData] = useState({ reviews: [] });
   const [recent, setRecent] = useState({ reviews: [] });
   const [score, setScore] = useState('');
+  const [recentScore, setRecentScore] = useState('');
   const [count, setCount] = useState(0);
+  const [recentCount, setRecentCount] = useState(0);
   const [modal, setModal] = useState(null);
   const [awardSelected, setAward] = useState(null);
 
@@ -86,6 +88,7 @@ var App = function(props) {
 
     var totalReviews = reviews.length;
     var recommendedCount = 0;
+    var recentlyRecommendedCount = 0;
     var recentlyPosted = [];
     if (Array.isArray(reviews) && reviews.length > 0) {
       reviews.forEach((review, key) => {
@@ -98,16 +101,26 @@ var App = function(props) {
         var timePastInDays = timePast / 86400000;
         if (timePastInDays < 365) {
           recentlyPosted.push(review);
+          if (review.recommended) {
+            recentlyRecommendedCount++;
+          }
         }
       });
       recentlyPosted = recentlyPosted.slice(0, 11);
     }
-    setCount(reviews.length);
+
     setData(reviews);
     setRecent(recentlyPosted);
+
     var score = Math.floor(recommendedCount/totalReviews * 100)
     var summary = scoreInterpreter(score);
+    setCount(totalReviews);
     setScore(summary);
+
+    var recentScore = Math.floor(recentlyRecommendedCount/recentlyPosted.length * 100)
+    var recentSummary = scoreInterpreter(recentScore);
+    setRecentCount(recentlyRecommendedCount);
+    setRecentScore(recentSummary);
   };
 
   const scoreInterpreter = (score) => {
@@ -134,7 +147,7 @@ var App = function(props) {
       <Wrapper>
       <ReviewSection>
         <Heading>CUSTOMER REVIEWS</Heading>
-        <Header score={score} count={count}/>
+        <Header score={score} count={count} recentScore={recentScore} recentCount={recentCount}/>
         <ResultsSummary  score={score} count={count}/>
         {/* <Wrapper> */}
           <LeftCol>

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import FilterType from "./FilterType.jsx";
 import filterFlyouts from "./FilterData.jsx";
 import DisplayAs from "./DisplayAs.jsx";
+import ShowGraph from "./ShowGraph/ShowGraph.jsx";
 
 const filterTitles = [ 'Review Type', 'Purchase Type', 'Language', 'Date Range', 'Playtime' ];
 
@@ -16,6 +17,7 @@ var Filters = (props) => {
     <FilterContainer>
       {filters}
       <DisplayAs />
+      <ShowGraph />
     </FilterContainer>
     );
   }

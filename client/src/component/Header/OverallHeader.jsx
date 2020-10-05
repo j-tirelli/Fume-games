@@ -1,6 +1,17 @@
 import React from "react";
 import styled from 'styled-components'
-import SummaryScore from '../Reusable/SummaryScore.jsx'
+import HeaderInfo from '../Reusable/HeaderInfo.jsx'
+
+var OverallHeader = ({ score, count }) => {
+  return (
+    <UserReviewsSummaryBar>
+      <Title>Overall Reviews:</Title>
+      <HeaderInfo score={ score } count={ count } />
+    </UserReviewsSummaryBar>
+  );
+}
+
+export default OverallHeader;
 
 const UserReviewsSummaryBar = styled.div`
   padding: 10px;
@@ -29,21 +40,3 @@ const ReviewCount = styled.span`
   padding: 0 0 5px;
   vertical-align: bottom;
 `;
-
-
-var OverallHeader = (props) => {
-  return (
-
-    <UserReviewsSummaryBar>
-      <div>
-        <Title>Overall Reviews:</Title>
-        <SummaryScore score={props.score}></SummaryScore> <ReviewCount>({props.count} reviews)</ReviewCount>
-        <a className="tooltip" alt="This summary uses only reviews written by customers that purchased the game directly from Moist Air."><img src="assets/icon_questionmark.png" /></a>
-      </div>
-    </UserReviewsSummaryBar>
-
-  );
-
-}
-
-export default OverallHeader;

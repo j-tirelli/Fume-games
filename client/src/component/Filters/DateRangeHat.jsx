@@ -7,7 +7,7 @@ var DateRangeHat = () => {
       To view reviews within a date range, please click and drag a selection on a graph above or click on a specific bar.
       <br /><br />
 			<InnerFade>
-        <showGraph>Show graph</showGraph>
+        <ShowGraph>Show graph</ShowGraph>
       </InnerFade>
     </Explanation>
   );
@@ -33,7 +33,7 @@ const InnerFade = styled.div`
   text-decoration: none !important;
 `;
 
-const showGraph = styled.span`
+const ShowGraph = styled.span`
   background: linear-gradient( to bottom, rgba(33,101,138,1) 5%, rgba(23,67,92,1) 95%);
   border-radius: 2px;
   display: block;
