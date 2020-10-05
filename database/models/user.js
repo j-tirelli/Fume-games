@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       User.belongsToMany(models.Game, { through: 'User_game' })
-      User.hasMany(models.User_game);
+      User.hasMany(models.User_game, {foreignKey: 'id'});
     }
   };
   User.init({
@@ -19,7 +19,6 @@ module.exports = (sequelize, DataTypes) => {
     avatar: DataTypes.STRING,
     games_owned_count: DataTypes.INTEGER,
     reviews_count: DataTypes.INTEGER,
-    comments_count: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'User',

@@ -14,9 +14,15 @@ const Thumb = styled.img`
 `;
 
 var Thumbs = (props) => {
+  var thumb = '';
+  if (props.thumb) {
+    thumb = '../../../assets/icon_thumbsUp_v6.png';
+  } else if (props.thumb === false) {
+    thumb = '../../../assets/icon_thumbsDown_v6.png';
+  }
   return (
         <ImageStyle>
-          <Thumb src={props.thumb} width={props.dim} height={props.dim} />
+          <Thumb src={thumb} width={props.dim} height={props.dim} />
         </ImageStyle>
   );
 

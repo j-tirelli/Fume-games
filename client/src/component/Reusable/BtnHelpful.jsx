@@ -14,7 +14,7 @@ const Wrapper = styled.span`
 `;
 
 const Helpful = styled.i`
-  background: url(../../../dist/assets/icons_16.png);
+  background: url(../../../assets/icons_16.png);
   background-position: -112px -16px;
   display: inline-block;
   height: 16px;
@@ -22,9 +22,14 @@ const Helpful = styled.i`
   width: 16px;
 `;
 
-var BtnHelpful = (props) => {
+var BtnHelpful = ({id, voteHandler}) => {
+
+  const handleClick = (event, cb) => {
+    cb(id, 'helpful');
+  }
+
   return (
-    <Wrapper>
+    <Wrapper onClick={(event) => handleClick(event, voteHandler)}>
       <Helpful /> Yes
     </Wrapper>
   );

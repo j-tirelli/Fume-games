@@ -1,11 +1,69 @@
-import React from "react";
+import React from 'react';
 import styled from 'styled-components'
+import axios from 'axios';
+
 import Avatar from '../Reusable/Avatar.jsx'
 import Thumbs from '../Reusable/Thumbs.jsx'
 import BtnHelpful from '../Reusable/BtnHelpful.jsx'
-import BtnNotHelpful from '../Reusable/BtnNotHelpful.jsx'
+import BtnUnHelpful from '../Reusable/BtnUnHelpful.jsx'
 import BtnFunny from '../Reusable/BtnFunny.jsx'
 import BtnAward from '../Reusable/BtnAward.jsx'
+import MetaContainer from '../Reusable/MetaContainer.jsx'
+
+
+
+var Review = ({ review, voteHandler, modalToggler }) => {
+  if (review) {
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var reviewDate = new Date(review.createdAt);
+    reviewDate = months[reviewDate.getMonth()] + ' ' + reviewDate.getDate()
+    return (
+      <Wrapper>
+        <MainBody>
+          <Left>
+            <Avatar avatar={review.User.avatar} height='32' width='32' />
+            <InlineUser>
+              <Username>{review.User.Username}</Username>
+              <GamesCount>{review.User.games_owned_count} products in account</GamesCount>
+            </InlineUser>
+            <ReviewCount>{review.User.reviews_count} reviews</ReviewCount>
+          </Left>
+          <Right>
+            <Stats>
+              <Thumbs thumb={review.recommended} dim='40'/>
+                <Icon src={"../../../assets/icon_review_steam.png"} alt="Product purchased directly from Steam"  />
+              <Title>{(review.recommended) ? 'Recommended' : 'Not Recommended' }</Title>
+              <Hours>{review.User_game.time_played} hours played</Hours>
+            </Stats>
+            <PostedDate>POSTED: {reviewDate}</PostedDate>
+            <Content>
+              {review.body}
+            </Content>
+            <Hr />
+            <div>
+              <HelpfulAsk>Was this review helpful?</HelpfulAsk>
+              <Controls>
+                <BtnHelpful id={review.id} voteHandler={voteHandler} />
+                <BtnUnHelpful id={review.id} voteHandler={voteHandler} />
+                <BtnFunny id={review.id} voteHandler={voteHandler} />
+                <BtnAward id={review.id} modalToggler={modalToggler} />
+              </Controls>
+              <VoteInfo>
+                < MetaContainer id={review.id} helpful={review.helpful_count} funny={review.funny_count} awards={review.awards} modalToggler={modalToggler} />
+              </VoteInfo>
+            </div>
+          </Right>
+          <ClearFloats></ClearFloats>
+        </MainBody>
+      </Wrapper>
+    );
+  } else {
+    return null;
+  }
+}
+
+export default Review;
+
 
 const ClearFloats = styled.div`
   clear: both;
@@ -72,7 +130,7 @@ const MainBody = styled.div`
   color: #c1dbf4;
   font-family: Arial;
   font-size: 15px;
-  width: 616px;
+  max-width: 616px;
 `;
 
 const ReviewCount = styled.div`
@@ -85,7 +143,7 @@ const Right = styled.div`
   float: left;
   margin-left: 14px;
   position: relative;
-  width: 400px;
+  max-width: 400px;
 `;
 
 const Stats = styled.div`
@@ -106,7 +164,7 @@ const Username = styled.div`
   margin-bottom: -1px;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 140px;
+  max-width: 140px;
 `;
 
 const Title = styled.div`
@@ -119,7 +177,7 @@ const Title = styled.div`
   position: absolute;
     top: 6px;
     left: 53px;
-  width: 328px;
+  max-width: 328px;
 `;
 
 const PostedDate = styled.div`
@@ -145,50 +203,3 @@ const Wrapper = styled.div`
   margin-bottom: 26px;
   padding-top: 1px;
 `;
-
-var Review = (props) => {
-  return (
-
-    <Wrapper>
-      <MainBody>
-        <Left>
-          <Avatar avatar='../../../dist/assets/userimg.jpg' />
-          <InlineUser>
-            <Username>Banake</Username>
-            <GamesCount>2,122 products in account</GamesCount>
-          </InlineUser>
-          <ReviewCount>49 reviews</ReviewCount>
-        </Left>
-        <Right>
-          <Stats>
-            <Thumbs thumb='../../../dist/assets/icon_thumbsUp_v6.png' dim='40'/>
-              <Icon src="../../../dist/assets/icon_review_steam.png" alt="Product purchased directly from Steam"  />
-            <Title>{(props.recommended) ? 'Recommended' : 'Not Recommended' }</Title>
-            <Hours>2.1 hrs on record (0.2 hrs at review time)</Hours>
-          </Stats>
-          <PostedDate>POSTED: OCTOBER 23, 2019</PostedDate>
-          <Content>
-            I mean, It is no 'Garfield Kart', but it is ok.
-          </Content>
-          <Hr />
-          <div>
-            <HelpfulAsk>Was this review helpful?</HelpfulAsk>
-            <Controls>
-              <BtnHelpful /> <BtnNotHelpful /> <BtnFunny /> <BtnAward />
-            </Controls>
-            <VoteInfo>
-              11 people found this review helpful
-              <br/>
-              7 people found this review funny
-            </VoteInfo>
-          </div>
-        </Right>
-        <ClearFloats></ClearFloats>
-      </MainBody>
-    </Wrapper>
-
-  );
-
-}
-
-export default Review;

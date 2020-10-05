@@ -4,11 +4,15 @@ const db = require('../database');
 const app = express()
 const port = 3000
 
-// app.use(express.static('client/dist'))
+app.use('/', express.static('client/dist'))
 
 
 app.get('/moist-air/reviews', (req, res, next) => {
-  db.getReviews(req.query.gameID)
+  let gameID = req.query.gameID;
+  if (gameID === '') {  // default to hello kitty
+    gameID = 1;
+  }
+  db.getReviews(gameID)
     .then((data) => {
       res.send(data);
     })

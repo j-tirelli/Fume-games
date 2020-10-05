@@ -5,12 +5,23 @@
   "main": "index.js",
   "dependencies": {
     "axios": "^0.20.0",
+    "cloc": "^2.7.0",
     "dotenv": "^8.2.0",
     "nodemon": "^2.0.4"
   },
   "devDependencies": {
-    "jest": "^26.4.2",
+    "babel-plugin-styled-components": "^1.11.1",
+    "enzyme-adapter-react-16": "^1.15.5",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jest": "^26.5.0",
+    "jest-environment-enzyme": "^7.1.2",
+    "jest-enzyme": "^7.1.2",
     "morgan": "^1.10.0"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   },
   "scripts": {
     "build": "cd client && npm run build",

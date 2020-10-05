@@ -16,7 +16,13 @@ module.exports = {
       UserId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        onUpdate: 'cascade'      },
+        onUpdate: 'cascade'
+      },
+      UserGameId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        onUpdate: 'cascade'
+      },
       recommended: {
         allowNull: false,
         type: Sequelize.BOOLEAN

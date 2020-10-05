@@ -21,6 +21,15 @@ module.exports = {
             presets: [
               '@babel/env',
               '@babel/react'
+            ],
+            plugins: [
+              [
+                "babel-plugin-styled-components",
+                {
+                  "displayName": true,
+                  "fileName": false
+                }
+              ]
             ]
           }
         }
