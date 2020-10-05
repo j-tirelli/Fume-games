@@ -20,6 +20,7 @@
 > After installation, use npm start to run the server.
 >
 
+## Scripts
 > From within the root folder:
 > npm run installAll - Install all dependencies in their local folders.
 > npm run initialize - Create Database and tables and seed with fake data. (drops database if exists)
