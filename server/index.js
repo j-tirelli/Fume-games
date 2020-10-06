@@ -1,15 +1,15 @@
 const express = require('express');
 const db = require('../database');
 
-const app = express()
-const port = 3000
+const app = express();
+const port = 3003;
 
-app.use('/', express.static('client/dist'))
+app.use('/', express.static('client/dist'));
 
 
 app.get('/moist-air/reviews', (req, res, next) => {
   let gameID = req.query.gameID;
-  if (gameID === '') {  // default to hello kitty
+  if (gameID === '') { // default to hello kitty
     gameID = 1;
   }
   db.getReviews(gameID)
@@ -19,7 +19,7 @@ app.get('/moist-air/reviews', (req, res, next) => {
     .catch((err) => {
       res.send(err);
     });
-})
+});
 
 app.patch('/moist-air/reviews', (req, res, next) => {
   var dataToChange = { key: req.query.key, val: req.query.value };
@@ -30,8 +30,8 @@ app.patch('/moist-air/reviews', (req, res, next) => {
     .catch((err) => {
       res.send(err);
     });
-})
+});
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+  console.log(`Example app listening at http://localhost:${port}`);
+});
