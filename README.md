@@ -18,14 +18,14 @@
 
 ## Usage
 > After installation, use npm start to run the server.
->
+
 
 ## Scripts
-> From within the root folder:
-> npm run installAll - Install all dependencies in their local folders.
-> npm run initialize - Create Database and tables and seed with fake data. (drops database if exists)
-> npm run clearDB - Remove all data and delete database.
-> npm run build - run webpack to create a bundle.js file.
+From within the root folder:
+- npm run installAll - Install all dependencies in their local folders.
+- npm run initialize - Create Database and tables and seed with fake data.
+- npm run clearDB - Remove all data and delete database.
+- npm run build - run webpack to create a bundle.js file.
 
 
 ## Requirements
