@@ -5,7 +5,6 @@
   "main": "index.js",
   "dependencies": {
     "axios": "^0.20.0",
-    "cloc": "^2.7.0",
     "dotenv": "^8.2.0",
     "nodemon": "^2.0.4"
   },
