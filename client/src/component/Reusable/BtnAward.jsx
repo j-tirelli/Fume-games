@@ -42,5 +42,6 @@ Award.displayName = 'Award';
 const Icon = styled.img`
   height: 16px;
   vertical-align: middle;
+  width: unset;
 `;
 Icon.displayName = 'Icon';

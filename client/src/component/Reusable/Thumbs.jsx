@@ -7,10 +7,11 @@ const ImageStyle = styled.div`
   border-radius: 0;
   margin-right: 10px;
   padding: 1px 5px 1px 0;
-`;
+  `;
 
-const Thumb = styled.img`
+  const Thumb = styled.img`
   float: left;
+  width: unset;
 `;
 
 var Thumbs = (props) => {
