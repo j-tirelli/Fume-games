@@ -6,7 +6,7 @@ var PlaytimeHat = (props) => {
     <React.Fragment>
       <div>
         <Link href='#'>
-          <SteamLabsLogo src='/assets/steam_labs_logo.svg' />
+          <SteamLabsLogo src='https://review-assets.s3.us-east-2.amazonaws.com/steam_labs_logo.svg' />
           <span>Brought to you by Moist Air Labs</span>
         </Link>
       </div>

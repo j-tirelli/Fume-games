@@ -16,9 +16,9 @@ const Thumb = styled.img`
 var Thumbs = (props) => {
   var thumb = '';
   if (props.thumb) {
-    thumb = '../../../assets/icon_thumbsUp_v6.png';
+    thumb = 'https://review-assets.s3.us-east-2.amazonaws.com/icon_thumbsUp_v6.png';
   } else if (props.thumb === false) {
-    thumb = '../../../assets/icon_thumbsDown_v6.png';
+    thumb = 'https://review-assets.s3.us-east-2.amazonaws.com/icon_thumbsDown_v6.png';
   }
   return (
         <ImageStyle>

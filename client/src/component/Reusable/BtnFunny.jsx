@@ -27,7 +27,7 @@ const Wrapper = styled.span`
 `;
 
 const Funny = styled.i`
-  background: url(../../../assets/icons_16.png);
+  background: url(https://review-assets.s3.us-east-2.amazonaws.com/icons_16.png);
   background-position: -208px -16px;
   display: inline-block;
   height: 16px;

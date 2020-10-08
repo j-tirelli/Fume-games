@@ -10,7 +10,7 @@ var BtnAward = ({ id, modalToggler }) => {
   return (
     <Wrapper onClick={(event) => clickHandler(event)}>
       <Award>
-        <Icon src="../../../assets/award_icon.svg" /> Award
+        <Icon src="https://review-assets.s3.us-east-2.amazonaws.com/award_icon.svg" /> Award
       </Award>
     </Wrapper>
   );
