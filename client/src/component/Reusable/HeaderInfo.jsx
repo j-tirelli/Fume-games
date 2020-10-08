@@ -1,17 +1,17 @@
-import React from "react";
+import React from 'react';
 import styled from 'styled-components';
-import SummaryScore from './SummaryScore.jsx'
+import SummaryScore from './SummaryScore.jsx';
 
 var HeaderInfo = ({ score, count }) => {
   return (
-      <div>
-        <SummaryScore score={score}></SummaryScore> <ReviewCount>({count} reviews)</ReviewCount>
-        <a><img src="assets/icon_questionmark.png" /></a>
-      </div>
-    );
-  }
+    <div>
+      <SummaryScore score={score}></SummaryScore> <ReviewCount>({count} reviews)</ReviewCount>
+      <a><img style={{ width: 12, height: 12 }} src="https://review-assets.s3.us-east-2.amazonaws.com/icon_questionmark.png" /></a>
+    </div>
+  );
+};
 
-  export default HeaderInfo;
+export default HeaderInfo;
 
 const ReviewCount = styled.span`
   color: #8ba6b6;

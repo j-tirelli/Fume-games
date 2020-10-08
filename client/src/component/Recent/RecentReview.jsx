@@ -17,7 +17,7 @@ var RecentReview = ({ review, voteHandler, awardHandler, modalToggler }) => {
         <Stats>
           <Thumbs thumb={review.recommended} dim='21'/>
           <Username>{review.User.Username}</Username>
-          <Icon src="../../../assets/icon_review_steam.png" alt="Product purchased directly from Steam"  />
+          <Icon src="https://review-assets.s3.us-east-2.amazonaws.com/icon_review_steam.png" alt="Product purchased directly from Steam"  />
           <Hours>{review.User_game.time_played} hrs</Hours>
         </Stats>
         <Right>

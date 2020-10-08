@@ -1,22 +1,22 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
 import axios from 'axios';
 
-import Avatar from '../Reusable/Avatar.jsx'
-import Thumbs from '../Reusable/Thumbs.jsx'
-import BtnHelpful from '../Reusable/BtnHelpful.jsx'
-import BtnUnHelpful from '../Reusable/BtnUnHelpful.jsx'
-import BtnFunny from '../Reusable/BtnFunny.jsx'
-import BtnAward from '../Reusable/BtnAward.jsx'
-import MetaContainer from '../Reusable/MetaContainer.jsx'
+import Avatar from '../Reusable/Avatar.jsx';
+import Thumbs from '../Reusable/Thumbs.jsx';
+import BtnHelpful from '../Reusable/BtnHelpful.jsx';
+import BtnUnHelpful from '../Reusable/BtnUnHelpful.jsx';
+import BtnFunny from '../Reusable/BtnFunny.jsx';
+import BtnAward from '../Reusable/BtnAward.jsx';
+import MetaContainer from '../Reusable/MetaContainer.jsx';
 
 
 
 var Review = ({ review, voteHandler, modalToggler }) => {
   if (review) {
-    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     var reviewDate = new Date(review.createdAt);
-    reviewDate = months[reviewDate.getMonth()] + ' ' + reviewDate.getDate()
+    reviewDate = months[reviewDate.getMonth()] + ' ' + reviewDate.getDate();
     return (
       <Wrapper>
         <MainBody>
@@ -31,7 +31,7 @@ var Review = ({ review, voteHandler, modalToggler }) => {
           <Right>
             <Stats>
               <Thumbs thumb={review.recommended} dim='40'/>
-                <Icon src={"../../../assets/icon_review_steam.png"} alt="Product purchased directly from Steam"  />
+              <Icon src={'https://review-assets.s3.us-east-2.amazonaws.com/icon_review_steam.png'} alt="Product purchased directly from Steam" />
               <Title>{(review.recommended) ? 'Recommended' : 'Not Recommended' }</Title>
               <Hours>{review.User_game.time_played} hours played</Hours>
             </Stats>
@@ -60,7 +60,7 @@ var Review = ({ review, voteHandler, modalToggler }) => {
   } else {
     return null;
   }
-}
+};
 
 export default Review;
 
@@ -107,9 +107,11 @@ const Hr = styled.hr`
 
 const Icon = styled.img`
   float: right;
+  max-height: 16px;
   margin-right: 5px;
   margin-top: 12px;
   opacity: 0.5;
+  max-width: 16px;
 `;
 
 const InlineUser = styled.div`

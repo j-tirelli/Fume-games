@@ -42,7 +42,7 @@ const Label = styled.span`
 `;
 
 const BtnToggle = styled.div`
-  background: url(/assets/review_graph_expander.png);
+  background: url(https://review-assets.s3.us-east-2.amazonaws.com/review_graph_expander.png);
   background-position: 0px -12px;
   background-repeat: no-repeat;
   background-size: 14px 26px;

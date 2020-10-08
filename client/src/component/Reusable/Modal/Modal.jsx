@@ -73,7 +73,7 @@ const Modal = function ({ id = null, modalToggler, voteHandler, selected }) {
             <HR />
             <Modal_Footer >
               <Modal_Footer_Left >
-                <Award_Button_Points_Icon height='32' width='32' src='/assets/steam_points_icon.png' />
+                <Award_Button_Points_Icon height='32' width='32' src='https://review-assets.s3.us-east-2.amazonaws.com/steam_points_icon.png' />
                 <Award_Balance>
                   <Award_Balance_Label>
                     Your Balance

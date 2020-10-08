@@ -1,22 +1,9 @@
-import React from "react";
+import React from 'react';
 import styled from 'styled-components';
 import MenuFlyout from './MenuFlyout.jsx';
 
-var FilterType = ({ filterTitle, inputs }) => {
-  return (
-    <ReviewsFilterMenu>
-      <ReviewsFilterTitle>
-        { filterTitle }
-      </ReviewsFilterTitle>
-      <MenuFlyout parent={ReviewsFilterMenu} inputs={inputs} />
-    </ReviewsFilterMenu>
-    );
-  }
-
-export default FilterType;
-
 const ReviewsFilterTitle = styled.div`
-  background-image: url(/assets/btn_arrow_down_padded.png);
+  background-image: url(https://review-assets.s3.us-east-2.amazonaws.com/btn_arrow_down_padded.png);
   background-repeat: no-repeat;
   background-position-y: center;
   background-position-x: right;
@@ -36,3 +23,16 @@ const ReviewsFilterMenu = styled.div`
     background-color: #c6d4df;
   }
 `;
+
+var FilterType = ({ filterTitle, inputs }) => {
+  return (
+    <ReviewsFilterMenu>
+      <ReviewsFilterTitle>
+        { filterTitle }
+      </ReviewsFilterTitle>
+      <MenuFlyout parent={ReviewsFilterMenu} inputs={inputs} />
+    </ReviewsFilterMenu>
+  );
+};
+
+export default FilterType;

@@ -33,7 +33,7 @@ const ModalBtn = function ({ award, giveFocus }) {
     <Award_Button id={award.name} onMouseEnter={ (event) => imageAnimate(event) } onMouseLeave={() => imageStill(event)} onClick={(event) => giveFocus(event, award.name)}>
       <AwardImage award={award.name} size='80' />
       <Award_Button_Label>{award.name}</Award_Button_Label>
-      <Award_Button_Points><Award_Button_Points_Icon height='16' width='16' src='/assets/steam_points_icon.png' /> {award.cost}</Award_Button_Points>
+      <Award_Button_Points><Award_Button_Points_Icon height='16' width='16' src='https://review-assets.s3.us-east-2.amazonaws.com/steam_points_icon.png' /> {award.cost}</Award_Button_Points>
     </Award_Button>
   );
 }
