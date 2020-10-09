@@ -10,8 +10,10 @@ const ImageStyle = styled.div`
   width: unset;
 `;
 
-const Thumb = styled.img`
+
+  const Thumb = styled.img`
   float: left;
+  width: unset;
 `;
 
 var Thumbs = (props) => {
