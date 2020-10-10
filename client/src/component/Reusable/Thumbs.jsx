@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import styled from 'styled-components';
 
 const ImageStyle = styled.div`
@@ -7,7 +7,9 @@ const ImageStyle = styled.div`
   border-radius: 0;
   margin-right: 10px;
   padding: 1px 5px 1px 0;
-  `;
+  width: unset;
+`;
+
 
   const Thumb = styled.img`
   float: left;
@@ -22,11 +24,11 @@ var Thumbs = (props) => {
     thumb = 'https://review-assets.s3.us-east-2.amazonaws.com/icon_thumbsDown_v6.png';
   }
   return (
-        <ImageStyle>
-          <Thumb src={thumb} width={props.dim} height={props.dim} />
-        </ImageStyle>
+    <ImageStyle>
+      <Thumb src={thumb} width={props.dim} height={props.dim} />
+    </ImageStyle>
   );
 
-}
+};
 
 export default Thumbs;

@@ -1,5 +1,5 @@
-import React from "react";
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 var BtnAward = ({ id, modalToggler }) => {
 
@@ -14,7 +14,7 @@ var BtnAward = ({ id, modalToggler }) => {
       </Award>
     </Wrapper>
   );
-}
+};
 
 export default BtnAward;
 
