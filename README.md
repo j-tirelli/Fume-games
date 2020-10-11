@@ -1,4 +1,4 @@
-# Project Name
+# Single Page Application (Docker)
 
 
 > This project is an excercise in designing a single page application sales portal. This page will make use of interactive components to display video, images, and text content to a potential customer, making use of a service oriented architecture through a proxy server to create one seamless page.
@@ -30,6 +30,6 @@ From within the root directory:
 
 
 1. Clone this respository.
-1. [Requirements](#requirements)
+1. Install [Docker](https://docs.docker.com/engine/install/) and [Docker-compose](https://docs.docker.com/compose/install/).
 1. From the shell, Install the container and run it: docker-compose up --build
 1. From a seperate shell, seed the database: docker exec -it reviews_app npm run initialize
