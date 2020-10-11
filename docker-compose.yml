@@ -6,13 +6,13 @@ services:
     ports:
     - "3306:3306"
     environment:
-    - MYSQL_ROOT_PASSWORD=password
-    - MYSQL_USER=username
-    - MYSQL_PASSWORD=password
-    - MYSQL_DATABASE=database
+    - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+    - MYSQL_USER=${DB_USERNAME}
+    - MYSQL_PASSWORD=${DB_PASSWORD}
+    - MYSQL_DATABASE=${MYSQL_DATABASE}
   web:
     container_name: reviews_app
-    build: .
+    image: jtirelli/reviews:latest
     links:
       - "db:reviews_db"
     ports:

@@ -19,33 +19,17 @@
 ## Usage
 > After installation, use npm start to run the server.
 
-## Scripts
-From within the root folder:
-- npm run installAll - Install all dependencies in their local folders.
-- npm run initialize - Create Database and tables and seed with fake data.
-- npm run clearDB - Remove all data and delete database.
-- npm run build - run webpack to create a bundle.js file.
-
-
 ## Requirements
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- axios
-- dotenv
-- nodemon
-- react
-- react-dom
-- styled-components
+- [Docker](https://docs.docker.com/engine/install/)
+- [Docker-compose](https://docs.docker.com/compose/install/)
 
 ### Installation
 
 From within the root directory:
 
-```sh
-1. Find the .env files in your root folder and your database folder.
-1. Change the database username and password in these 2 files to reflect your setup.
-1. npm run installAll
-1. npm run initialize
-```
+
+1. Clone this respository.
+1. [Requirements](#requirements)
+1. From the shell, Install the container and run it: docker-compose up --build
+1. From a seperate shell, seed the database: docker exec -it reviews_app npm run initialize
