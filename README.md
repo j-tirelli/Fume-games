@@ -1,14 +1,12 @@
-# Project Name
+# Fume games
 
+> Finding games for that you'll love is a snap with Fume.
 
-> This project is an excercise in designing a single page application sales portal. This page will make use of interactive components to display video, images, and text content to a potential customer, making use of a service oriented architecture through a proxy server to create one seamless page.
+## Team Members
 
-## Related Projects
-
-  - https://github.com/Jamie-Lee-Birdis/reviews-proxy
-  - https://github.com/Jamie-Lee-Birdis/hero-section
-  - https://github.com/Jamie-Lee-Birdis/body
-  - https://github.com/Jamie-Lee-Birdis/reviews/
+  - [Harsh Vikram Singh](https://www.linkedin.com/in/harsh-vikram-singh/)
+  - [Charles Eddy](https://www.linkedin.com/in/charles-eddy-8016421b3/)
+  - [John Tirelli](https://www.linkedin.com/in/john-tirelli/)
 
 ## Table of Contents
 
@@ -28,8 +26,6 @@ From within the root folder:
 
 
 ## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - Node 6.13.0
 - axios
