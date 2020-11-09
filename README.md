@@ -30,7 +30,6 @@ From within the root folder:
 - Node 6.13.0
 - axios
 - dotenv
-- nodemon
 - react
 - react-dom
 - styled-components
